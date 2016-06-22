@@ -1,6 +1,6 @@
 import unittest
 from leet_code.count_numbers_with_unique_digits import *
-
+from leet_code.int_to_english import *
 
 class LeetCodeTestCase(unittest.TestCase):
     def setUp(self):
@@ -30,4 +30,15 @@ class LeetCodeTestCase(unittest.TestCase):
         result = count_numbers_with_unique_digits_backtracking(5)
 
         self.assertEqual(result, 32491)
+
+
+    def test_int_to_english_recursive(self):
+        result = int_to_english_recursive(123)
+        self.assertEqual(result, "One Hundred Twenty Three")
+
+        result = int_to_english_recursive(12345)
+        self.assertEqual(result, "Twelve Thousand Three Hundred Forty Five")
+
+        result = int_to_english_recursive(1234567)
+        self.assertEqual(result, "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven")
 
