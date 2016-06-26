@@ -1,6 +1,8 @@
 import unittest
 from leet_code.count_numbers_with_unique_digits import *
 from leet_code.int_to_english import *
+from leet_code.reverse_string import *
+from leet_code.valid_number import *
 
 class LeetCodeTestCase(unittest.TestCase):
     def setUp(self):
@@ -45,3 +47,27 @@ class LeetCodeTestCase(unittest.TestCase):
         result = int_to_english_recursive(1234567)
         self.assertEqual(result, "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven")
 
+
+    def test_reverse_string_pythonic(self):
+        input_str = "hello"
+        result = reverse_string_pythonic(input_str)
+
+        self.assertEqual("olleh", result)
+
+    def test_reverse_string(self):
+        input_str = "hello"
+        result = reverse_string(input_str)
+
+        self.assertEqual("olleh", result)
+
+    def test_is_validate_num(self):
+        self.assertTrue(is_validate_num("0"))
+        self.assertTrue(is_validate_num("0.1"))
+        self.assertTrue(is_validate_num("-1"))
+        self.assertTrue(is_validate_num("2e10"))
+        self.assertTrue(is_validate_num(".8"))
+        self.assertTrue(is_validate_num(".1 "))
+
+        self.assertFalse(is_validate_num("1a"))
+        self.assertFalse(is_validate_num("abc"))
+        self.assertFalse(is_validate_num("0e"))
