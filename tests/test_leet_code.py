@@ -33,6 +33,9 @@ class LeetCodeTestCase(unittest.TestCase):
 
 
     def test_int_to_english_recursive(self):
+        result = int_to_english_recursive(3)
+        self.assertEqual(result, "Three")
+
         result = int_to_english_recursive(123)
         self.assertEqual(result, "One Hundred Twenty Three")
 

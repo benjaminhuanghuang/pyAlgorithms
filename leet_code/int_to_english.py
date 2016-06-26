@@ -15,6 +15,8 @@ def int_to_english_recursive(num):
 
     def words(n):
         if n < 20:
+            # Here, we need a list instead of a string element, so use[n-1:n] instead of [n-1]
+            # notice that the final element specified i.e. [n] is not included in the slice.
             return to19[n - 1:n]
         if n < 100:
             return [tens[n / 10 - 2]] + words(n % 10)
