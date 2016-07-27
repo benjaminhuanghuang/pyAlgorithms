@@ -28,6 +28,10 @@ def arrays_interseciton_2(nums1, nums2):
     return [x for x in set(nums1) if x in set(nums2)]
 
 
+def arrays_interseciton_3(nums1, nums2):
+    return list(set(nums1) & set(nums2))
+
+
 b1 = [1, 2, 3, 4, 5, 9, 11, 15]
 b2 = [4, 5, 6, 7, 8]
 
