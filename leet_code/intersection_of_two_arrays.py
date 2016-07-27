@@ -12,5 +12,23 @@ The result can be in any order.
 
 '''
 
+
 def arrays_interseciton(nums1, nums2):
-    pass
+    return set(nums1).intersection(nums2)
+
+
+# Input:
+#   [1,2,2,1]
+#   [2]
+# Output:
+#   [2,2]
+# Expected:
+#   [2]
+def arrays_interseciton_2(nums1, nums2):
+    return [x for x in set(nums1) if x in set(nums2)]
+
+
+b1 = [1, 2, 3, 4, 5, 9, 11, 15]
+b2 = [4, 5, 6, 7, 8]
+
+print arrays_interseciton(b1, b2)
