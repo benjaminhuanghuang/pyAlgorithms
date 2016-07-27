@@ -7,10 +7,14 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
 
 Follow up:
 Could you do it without any loop/recursion in O(1) runtime?
+
+A naive implementation of the above process is trivial :-)
+
 http://www.cnblogs.com/grandyang/p/4741028.html
 '''
 
 
+# naive implementation
 def sum_digits(n):
     result = 0
     while n / 10 > 0:
