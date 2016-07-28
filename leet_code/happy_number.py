@@ -24,6 +24,7 @@ def is_happy_num(n):
     numSet = {}
     while True:
         numSet[n] = 1
+        # good idea!!!
         n = sum([int(x) * int(x) for x in list(str(n))])
         if n == 1 or n in numSet:
             break
