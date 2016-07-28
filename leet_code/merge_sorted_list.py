@@ -55,8 +55,8 @@ def append_node(head, tail, node):
 # 1. use a dummy to simplify
 # 2. Do not handle v1 == v2.
 def mergeTwoLists(l1, l2):
-    dummy = ListNode(0)
-    tail = dummy
+    dummy_head = ListNode(0)
+    tail = dummy_head
     while l1 and l2:
         if l1.val < l2.val:
             tail.next = l1
@@ -70,7 +70,7 @@ def mergeTwoLists(l1, l2):
         tail.next = l1
     else:
         tail.next = l2
-    return dummy.next
+    return dummy_head.next
 
 
 # -----------------------------------------------------
