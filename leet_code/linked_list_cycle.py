@@ -10,6 +10,7 @@ Can you solve it without using extra space?
 
 from data_structure.list_node import ListNode
 
+
 # Solution 1
 # O(n) space
 def hasCycle_On(head):
@@ -22,6 +23,7 @@ def hasCycle_On(head):
         head = head.next
     return False
 
+
 # O(1) space
 #  Time Limit Exceeded
 def has_cycle_O1(head):
@@ -31,13 +33,13 @@ def has_cycle_O1(head):
     fast_point = head
     slow_point = head
 
-    while fast_point and slow_point:
+    while fast_point and slow_point and fast_point.next:
         fast_point = fast_point.next.next
         slow_point = slow_point.next
         if fast_point == slow_point:
             break
 
-    return fast_point and fast_point.next
+    return (fast_point != None) and (fast_point.next != None)
 
 
 # solution 2  reverse cycle linked list will have same head
@@ -55,6 +57,7 @@ def reverseList(head):
         before = head
         head = after
     return before
+
 
 list_node = ListNode(0)
 
