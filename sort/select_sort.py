@@ -8,13 +8,14 @@
 
 from utilities.data_generator import *
 
+# N^2/2 compares and N exchanges
 def select_sort(items):
     n = len(items)
     for i in range(0, n):
-        min_index = i   # index of minimal entry
+        min_index = i  # index of minimal entry
         for j in range(i + 1, n):
             if items[j] < items[min_index]:
-                min_index = j
+                min_index = j  # get index of the smallest item [j, n-1]
         items[min_index], items[i] = items[i], items[min_index]  # swap
     return items
 
