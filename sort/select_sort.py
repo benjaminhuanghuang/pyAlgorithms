@@ -8,6 +8,7 @@
 
 from utilities.data_generator import *
 
+
 # N^2/2 compares and N exchanges
 def select_sort(items):
     n = len(items)
