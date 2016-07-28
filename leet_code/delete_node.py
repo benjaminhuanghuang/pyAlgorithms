@@ -6,13 +6,11 @@ Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node wi
 1 -> 2 -> 4 after calling your function.
 '''
 
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+from data_structure.list_node import ListNode
 
 def delete_node(node):
     node.val = node.next.val
     node.next = node.next.next
+
+
+head = ListNode(0)

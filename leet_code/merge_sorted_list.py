@@ -4,13 +4,7 @@
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the
 nodes of the first two lists.
 '''
-
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+from data_structure.list_node import ListNode
 
 def merge_sorted_lists(head1, head2):
     if head1 is None or head2 is None:
