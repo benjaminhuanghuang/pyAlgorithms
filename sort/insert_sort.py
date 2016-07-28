@@ -4,8 +4,7 @@ in a new sorted list.
     The sorted list is empty in the beginning. Since the total number of elements in the new and old list
 stays the same, we can use the same list to represent the sorted and the unsorted sections.
 """
-import random
-
+from utilities.data_generator import *
 
 # In-place version
 # O(n*n)
@@ -58,7 +57,7 @@ def reverse_insert_sort(number_array):
 
 
 def main():
-    random_items = [random.randint(-50, 100) for c in range(32)]
+    random_items = generate_random_list()
 
     print reverse_insert_sort([2, 13, 4, 1919, 1, 1100, 1, 2, 3, 373737, 0])
 
