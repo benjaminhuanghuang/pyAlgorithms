@@ -1,6 +1,28 @@
 """
-
+    Insertion sort works by taking elements from the unsorted list and inserting them at the right place
+in a new sorted list.
+    The sorted list is empty in the beginning. Since the total number of elements in the new and old list
+stays the same, we can use the same list to represent the sorted and the unsorted sections.
 """
+import random
+
+
+# In-place version
+# O(n*n)
+def insertion_sort(items):
+    """ Implementation of insertion sort """
+    for i in range(1, len(items)):
+        j = i
+        while j > 0 and items[j] < items[j - 1]:
+            items[j], items[j - 1] = items[j - 1], items[j]
+            j -= 1
+
+
+# Extra space version
+def insertion_sort_extra_space(items):
+    pass
+
+
 def insert_sort(number_array):
     length = len(number_array)
     if length < 2:
@@ -36,6 +58,8 @@ def reverse_insert_sort(number_array):
 
 
 def main():
+    random_items = [random.randint(-50, 100) for c in range(32)]
+
     print reverse_insert_sort([2, 13, 4, 1919, 1, 1100, 1, 2, 3, 373737, 0])
 
 

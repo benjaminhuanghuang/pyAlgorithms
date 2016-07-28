@@ -10,6 +10,17 @@
     1/2n^2 + 1/2n, which is 1/2n^2 - 1/2n. This is still O(n2) comparisons.
 """
 
+
+# Best version
+# O(n*n)
+def bubble_sort_2(items):
+    """ Implementation of bubble sort """
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+
+
 def bubble_sort(num_array):
     length = len(num_array)
     for x in xrange(0, length - 1):
@@ -29,6 +40,7 @@ def bubbleSort(num_array):
             if num_array[i] > num_array[i + 1]:
                 num_array[i], num_array[i + 1] = num_array[i + 1], num_array[i]
     return num_array
+
 
 def main():
     print bubble_sort([2, 1, 3, 0, 3837, 1, 33, 464])
