@@ -62,3 +62,6 @@ class Solution(object):
             fn_1 = fn
 
         return fn
+
+solu = Solution()
+print solu.climbStairs(10)
