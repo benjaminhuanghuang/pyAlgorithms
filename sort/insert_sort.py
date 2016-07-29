@@ -4,10 +4,18 @@ in a new sorted list.
     The sorted list is empty in the beginning. Since the total number of elements in the new and old list
 stays the same, we can use the same list to represent the sorted and the unsorted sections.
 """
+# ------------------------------------------------
+# N^2/4 compares and N^2/4 exchange
+# The worst case is N^2/2 compares and N^2/2 exchanges
+# The best case is N - 1 compares and 0 exchanges.
+# O(n*n)
+# ------------------------------------------------
+
 from utilities.data_generator import *
 
+
 # In-place version
-# O(n*n)
+#
 def insertion_sort(items):
     """ Implementation of insertion sort """
     for i in range(1, len(items)):

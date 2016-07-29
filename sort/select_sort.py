@@ -5,11 +5,16 @@
 
 3. Continue in this way until the entire array is sorted
 '''
+# ------------------------------------------------
+# N^2/2 compares and N exchanges
+# The worst case is 
+# The best case is
+# O(n*n)
+# ------------------------------------------------
 
 from utilities.data_generator import *
 
 
-# N^2/2 compares and N exchanges
 def select_sort(items):
     n = len(items)
     for i in range(0, n):
