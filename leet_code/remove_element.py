@@ -14,6 +14,7 @@ Your function should return length = 2, with the first two elements of nums bein
 
 
 class Solution(object):
+    # Remove elements equals to val and return the new length
     def removeElement(self, nums, val):
         """
         :type nums: List[int]
