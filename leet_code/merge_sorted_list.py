@@ -69,6 +69,7 @@ def mergeTwoLists(l1, l2):
 
 # -----------------------------------------------------
 # Wrong answer :-(
+# This solution for merge sorted array.
 # -----------------------------------------------------
 def merge_sorted_lists_wrong(l1, l2):
     if l1 is None or l2 is None:
