@@ -23,8 +23,9 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        base = ord('A')
         result = ''
         while n:
-            result = chr(ord('A') + (n - 1) % 26) + result
+            result = chr(base + (n - 1) % 26) + result
             n = (n - 1) / 26
         return result
