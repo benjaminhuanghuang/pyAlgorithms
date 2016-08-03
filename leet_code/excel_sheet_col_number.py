@@ -22,3 +22,16 @@ def title_to_number(title):
         result = result * 26 + ((ord(char) - ord('A') + 1))
 
     return result
+
+
+def col_title_to_num(title="LW"):
+    '''
+    index from 0
+    :param title:
+    :return:
+    '''
+    base = ord('A')
+    result = 0
+    for i in xrange(len(title)):
+        result = (ord(title[i]) - base + 1) + result * 26
+    return result - 1
