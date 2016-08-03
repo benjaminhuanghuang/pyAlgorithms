@@ -21,5 +21,5 @@ class Solution(object):
         """
         n = len(nums)
         k = k % n
-        # Do not use nums = nums[n - k:] + nums[:n - k]
+        # !! Do not use nums = nums[n - k:] + nums[:n - k]
         nums[:] = nums[n - k:] + nums[:n - k]
