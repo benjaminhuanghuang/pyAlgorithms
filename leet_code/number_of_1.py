@@ -18,4 +18,12 @@ def hamming_weight(n):
     return num
 
 
+def hamming_weight2(n):
+    num = 0
+    for i in range(32):
+        if n & (1 << i) != 0:
+            num += 1
+    return num
+
+
 print hamming_weight(9)

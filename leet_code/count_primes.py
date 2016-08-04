@@ -18,3 +18,45 @@ dividing only up to n / 2. Could we still do better?
 
 
 '''
+
+
+class Solution(object):
+    # https://www.youtube.com/watch?v=whwlDCExMpY
+
+    # Time Limit Exceeded
+    def countPrimes_easy(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+
+        result = []
+        for i in range(2, n):
+            if self.isPrime(i):
+                result.append(i)
+
+        return len(result)
+
+    def isPrime(self, n):
+        if n == 2:
+            return True
+        elif n < 2 or not n & 1:  # n & 1 == 0 means n is odd number
+            return False
+
+        for i in range(3, int(n ** 0.5) + 1, 2):
+            if n % i == 0:
+                return False
+
+        return True
+
+    #  Sieve of Eratosthenes
+    def countPrimes(self, n):
+        if n <= 2:
+            return 0
+        A = [True] * n  # A[0] to A[n -1]
+
+        for i in xrange(2, int(n ** 0.5) + 1):
+            if A[i]:
+                for j in xrange(i ** 2, n, i):  # remove all multiple of i
+                    A[j] = False
+        return sum(A) - 2  # skip A[0] and A[1]
