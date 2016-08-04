@@ -1,5 +1,3 @@
 Algorithms Python Implementation
 =====================================
-Reference
-- LeetCode-Python-Solution
-    https://github.com/zhouchong90/LeetCode-Python-Solution
+8.3    83/363 All free easy problems  
