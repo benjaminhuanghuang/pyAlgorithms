@@ -16,7 +16,7 @@ def is_power_of_four(num):
     :rtype: bool
     """
     # power of 2 : num & (num - 1)
-    # power of 4 : num = .....01010101, Note: 5 &0x55555555 !=0
+    # power of 4 : num = .....010101010, Note: 5 &0x55555555 !=0
     return num > 0 and num & (num - 1) == 0 and num & 0x55555555 != 0
 
 
