@@ -27,7 +27,7 @@ class Solution(object):
             a_xor_b ^= nums[i]
 
         # ! Key point
-        a_xor_b &= -a_xor_b  # Get the last set (1) bit
+        a_xor_b &= -a_xor_b  # Get the last set (1) bit, that is the last difference bit those two number have
 
         result = [0] * 2
         for n in nums:
