@@ -34,10 +34,14 @@ class Solution(object):
                 before += 1
         return res
 
-    # http://bookshadow.com/weblog/2016/03/18/leetcode-counting-bits/
+    # https://oncemore2020.github.io/blog/leetcode-338/
     # ans[n] = ans[n >> 1] + (n & 1)
     def countBits_2(self, num):
         ans = [0]
         for x in range(1, num + 1):
-            ans += ans[x >> 1] + (x & 1),
+            ans += [ans[x >> 1] + (x & 1)]
         return ans
+
+
+s = Solution()
+print s.countBits_2(2)
