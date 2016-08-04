@@ -15,3 +15,19 @@ def is_tree_same(t1, t2):
 
     return False
 
+
+def is_tree_same_dfs(t1, t2):
+    if t1 is None and t2 is None:
+        return True
+
+    stack = [(t1, t2)]
+    while stack:
+        n1, n2 = stack.pop()
+        if n1 == None or n2 == None:
+            continue
+        elif n1 and n2 and n1.val == n2.val:
+            stack.append(n1.left, n2.left)
+            stack.append(n1.righ, n2.right)
+        else:
+            return False
+    return True
