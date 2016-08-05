@@ -22,6 +22,7 @@ So you should return 1, because there is only one bulb is on.
 
 
 class Solution(object):
+    # http://www.cnblogs.com/grandyang/p/5100098.html
     def bulbSwitch(self, n):
         """
         :type n: int

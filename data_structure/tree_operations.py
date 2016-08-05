@@ -49,3 +49,15 @@ def invertTree_dfs(root):
             queue.append(front.right)
         front.left, front.right = front.right, front.left
     return root
+
+
+def inorderTraversal(self, root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    
+    if root is None:
+        return []
+    return inorderTraversal(root.left) + [root.val] \
+           + inorderTraversal(root.right)
