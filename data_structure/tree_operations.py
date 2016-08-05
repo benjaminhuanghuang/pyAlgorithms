@@ -56,8 +56,18 @@ def inorderTraversal(self, root):
     :type root: TreeNode
     :rtype: List[int]
     """
-    
+
     if root is None:
         return []
-    return inorderTraversal(root.left) + [root.val] \
-           + inorderTraversal(root.right)
+    return inorderTraversal(root.left) + [root.val] + inorderTraversal(root.right)
+
+
+def preorderTraversal(self, root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+
+    if root is None:
+        return []
+    return [root.val] + inorderTraversal(root.left) + inorderTraversal(root.right)
