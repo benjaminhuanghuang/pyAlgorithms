@@ -23,24 +23,25 @@ for the remaining brackets.
 '''
 
 
-def genterte_parentheses(n):
-    if n == 0:
-        return []
-    res = []
-    helpler(n, n, '', res)
+class Solution(object):
+    def genterte_parentheses(self, n):
+        if n == 0:
+            return []
+        res = []
+        self.helpler(n, n, '', res)
 
-    print res
+        return res
+
+    def helpler(self, l, r, item, res):
+        if r < l:
+            return
+        if l == 0 and r == 0:
+            res.append(item)
+        if l > 0:
+            self.helpler(l - 1, r, item + '(', res)
+        if r > 0:
+            self.helpler(l, r - 1, item + ')', res)
 
 
-def helpler(l, r, item, res):
-    if r < l:
-        return
-    if l == 0 and r == 0:
-        res.append(item)
-    if l > 0:
-        helpler(l - 1, r, item + '(', res)
-    if r > 0:
-        helpler(l, r - 1, item + ')', res)
-
-
-genterte_parentheses(4)
+s = Solution()
+s.genterte_parentheses(4)
