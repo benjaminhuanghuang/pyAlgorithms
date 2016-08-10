@@ -44,7 +44,7 @@ class Solution(object):
         sum = 0
         for num in nums:
             if num < 0:
-                sum = 0
+                sum = 0    # Error!
             else:
                 sum += num
             maxSum = max(maxSum, sum)
