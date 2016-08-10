@@ -33,6 +33,7 @@ int getSum(int a, int b) {
 
 
 def get_sum_1(a, b):
+    # b is carry , a is bit sum
     while b:
         a, b = (a ^ b), (a & b) << 1
     return a
