@@ -8,6 +8,10 @@ Given a = 1 and b = 2, return 3.
 
 
 https://www.hrwhisper.me/leetcode-sum-two-integers/
+
+http://bookshadow.com/weblog/2016/06/30/leetcode-sum-of-two-integers/
+Python will convert int to long int when the left-shift result too big
+In python did not have limitation for the long int
 '''
 
 '''
@@ -38,6 +42,8 @@ int getSum(int a, int b) {
 def get_sum_1(a, b):
     # b is carry , a is bit sum
     while b:
+        print b
+        print "\n"
         a, b = (a ^ b), (a & b) << 1
     return a
 
@@ -57,4 +63,13 @@ def get_sum(a, b):
     return a if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
 
 
-print get_sum(-1, 1)
+def get_sum_try(a, b):
+    MAX_INT = 0x7FFFFFFF
+    MASK = 0xFFFFFFFF
+    while b:
+        a, b = (a ^ b)& MASK, ((a & b) << 1) & MASK
+
+    return a #if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
+
+print get_sum_try(-1, 1)
+print get_sum_try(-1, -1)
