@@ -38,6 +38,7 @@ int getSum(int a, int b) {
 '''
 
 
+# Cause infinite loop, because Python will convert int to long int when the left-shift result too big
 # can not pass (-1,1)
 def get_sum_1(a, b):
     # b is carry , a is bit sum
@@ -63,13 +64,45 @@ def get_sum(a, b):
     return a if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
 
 
-def get_sum_try(a, b):
+# Wrong solution
+def get_sum_my(a, b):
     MAX_INT = 0x7FFFFFFF
     MASK = 0xFFFFFFFF
     while b:
-        a, b = (a ^ b)& MASK, ((a & b) << 1) & MASK
+        a, b = (a ^ b) & MASK, ((a & b) << 1) & MASK
+    #
+    return a if a <= MAX_INT else ((a & MAX_INT) | 0xFFFFFFFF80000000)
 
-    return a #if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
 
-print get_sum_try(-1, 1)
-print get_sum_try(-1, -1)
+print get_sum_my(-1, 1)
+
+# 0xFFFFFFFF80000000
+# 0x7FFFFFFFFFFFFFFF
+#
+import sys
+print "Biggest int"
+print sys.maxint
+print bin(9223372036854775807)
+print hex(9223372036854775807)
+print -sys.maxint-10
+print bin(-sys.maxint-1)
+
+
+print bin(-2)
+print bin(-2 & 0x7fffffff)
+print bin(2147483646)
+print bin(-2147483646)
+print bin(18446744073709551614)
+
+print type(0x7FFFFFFFFFFFFFFF)
+print type(0xFFFFFFFFFFFFFFFF)
+
+
+#
+# print "-- test --"
+print get_sum_my(-1, 1)
+print get_sum_my(2, 1)
+print get_sum_my(-1, -1)
+
+print type(18446744073709551614)
+

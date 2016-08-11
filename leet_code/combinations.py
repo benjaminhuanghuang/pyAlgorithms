@@ -14,6 +14,9 @@ If n = 4 and k = 2, a solution is:
   [1,3],
   [1,4],
 ]
+
+Hints:
+http://www.tianmaying.com/tutorial/LC77
 '''
 
 
@@ -32,7 +35,7 @@ class Solution(object):
         '''
         :param res:
         :param i: current number
-        :param n: biggest number
+        :param n: last number
         :param k: combination count
         :param temp:
         :return:
@@ -41,27 +44,39 @@ class Solution(object):
             res.append(temp)
             return
         for j in range(i + 1, n + 1):
-            self.rec(res, j, n, k - 1, temp.append(j))
+            # temp.append(j)
+            self.rec(res, j, n, k - 1, temp + [j])
 
+    def combine_9(self, n, k):
+        # write your code here
+        self.res = []
+        tmp = []
+        self.dfs(n, k, 1, 0, tmp)
+        return self.res
+
+    def dfs(self, n, k, m, p, tmp):
+        if k == p:
+            self.res.append(tmp[:])
+            return
+        for i in range(m, n + 1):
+            tmp.append(i)
+            self.dfs(n, k, i + 1, p + 1, tmp)
+            tmp.pop()
+
+    # https://shenjie1993.gitbooks.io/leetcode-python/content/077%20Combinations.html
+    # to n, have two choice: pick up (k-1) from 1 to (n-1) or pickup k from 1 to n-1
     def combine_2(self, n, k):
         """
         :type n: int
         :type k: int
         :rtype: List[List[int]]
         """
-        if n == 1:
-            return [[1]]
+        if k == 1:
+            return [[i + 1] for i in range(n)]
 
-        out = []
-        for i in range(1, n - k + 2):
-            out.append([i])
-
-        while True:
-            node = out[0]
-            if len(node) == k: break
-
-            for j in range(node[-1] + 1, n + 1):
-                out.append(node + [j])
-            out.pop(0)
-
-        return out
+        result = []
+        if n > k:
+            result = [r + [n] for r in self.combine(n - 1, k - 1)] + self.combine(n - 1, k)
+        else:
+            result = [r + [n] for r in self.combine(n - 1, k - 1)]
+        return result
