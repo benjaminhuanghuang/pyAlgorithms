@@ -29,11 +29,19 @@ class Solution(object):
         return res
 
     def rec(self, res, i, n, k, temp):
+        '''
+        :param res:
+        :param i: current number
+        :param n: biggest number
+        :param k: combination count
+        :param temp:
+        :return:
+        '''
         if k == 0:
             res.append(temp)
             return
         for j in range(i + 1, n + 1):
-            self.rec(res, j, n, k - 1, temp + [j])
+            self.rec(res, j, n, k - 1, temp.append(j))
 
     def combine_2(self, n, k):
         """

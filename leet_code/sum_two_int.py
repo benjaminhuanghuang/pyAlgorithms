@@ -1,4 +1,6 @@
 '''
+371. Sum of Two Integers
+
 Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
 
 Example:
@@ -32,6 +34,7 @@ int getSum(int a, int b) {
 '''
 
 
+# can not pass (-1,1)
 def get_sum_1(a, b):
     # b is carry , a is bit sum
     while b:
@@ -46,11 +49,12 @@ def get_sum(a, b):
     :rtype: int
     """
     MAX_INT = 0x7FFFFFFF
-    MIN_INT = 0x80000000
-    MASK = 0x100000000
+    MASK = 0xFFFFFFFF
     while b:
-        a, b = (a ^ b) % MASK, ((a & b) << 1) % MASK
-    return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
+        a, b = (a ^ b) & MASK, ((a & b) << 1) & MASK
+    # https://www.hrwhisper.me/leetcode-sum-two-integers/
+    # return a if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
+    return a if a <= MAX_INT else ~(a & MAX_INT) ^ MAX_INT
 
 
-print get_sum_1(-1, 0)
+print get_sum(-1, 1)
