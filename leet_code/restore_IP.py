@@ -33,3 +33,36 @@ class Solution(object):
         ips = []
         dfs(s, 0, ips, '')
         return ips
+
+    def restoreIP_brutal_force(self, s):
+        result = []
+        for one in xrange(1, 4):
+            for two in xrange(one + 1, one + 4):
+                if two > len(s) - 1:
+                    continue
+                for thr in xrange(two + 1, two + 4):
+                    if thr > len(s) - 1:
+                        continue
+
+                    s1 = s[0:one]
+                    s2 = s[one: two]
+                    s3 = s[two: thr]
+                    s4 = s[thr:]
+                    if (self.is_valid(s1) and self.is_valid(s2) and self.is_valid(s3) and self.is_valid(s4)):
+                        ip = s1 + "." + s2 + "." + s3 + "." + s4
+                        result.append(ip)
+        return result
+
+    def is_valid(self, s):
+        if s[0] == '0' and len(s) > 1:
+            return False
+        if len(s) == 3:
+            return int(s) <= 255
+        if len(s) > 3:
+            return False
+        return True
+
+
+s = Solution()
+# print s.restoreIP_brutal_force("25525511135")
+print s.restoreIP_brutal_force("1111")
