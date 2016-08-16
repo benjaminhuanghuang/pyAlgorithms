@@ -80,7 +80,7 @@ class Solution(object):
             for i in range(n):
                 word = queue.pop(0)
 
-                next_words = self.getNextWords(word, wordList)
+                next_words = self.getNextWords_v1(word, wordList)
                 for next_word in next_words:
                     if next_word == endWord:
                         return res + 1
@@ -92,6 +92,19 @@ class Solution(object):
             res += 1  #
 
         return 0
+
+    def getNextWords_v1(self, word, dict):
+        # aToz = string.ascii_lowercase
+        # a2z = [chr(x) for x in range(ord('a'), ord('z') + 1)]
+        aToz = 'abcdefghijklmnopqrstuvwxyz'
+        res = []
+        for char in aToz:
+            for j in range(len(word)):
+                if word[j] == char:
+                    continue
+                newWord = word[:j] + char + word[j + 1:]
+                res.append(newWord)
+        return res
 
     # Problem : can not get endword when endword is not in the wordlist
     def getNextWords(self, word, dict):
