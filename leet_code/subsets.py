@@ -29,7 +29,7 @@ class Solution(object):
         """
         if nums is None or len(nums) == 0:
             return [[]]
-        nums.sort()
+        # nums.sort()
 
         result = []
         line = []
@@ -45,12 +45,12 @@ class Solution(object):
             line.pop()
 
 
-    def subsets(self, nums):
+    def subsets_2(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        nums.sort()
+        # nums.sort()
 
         result = []
         line = []
@@ -68,4 +68,4 @@ class Solution(object):
 
 
 s = Solution()
-print s.subsets([1,2,3])
+print s.subsets_2([1,2,3])
