@@ -29,6 +29,26 @@ def reverse_list_recursive(head):
     return reversed
 
 
+def insertionSortList(head):
+    if not head:
+        return head
+    dummy = ListNode(0)
+    dummy.next = head
+    curr = head
+    while curr.next:
+        if curr.next.val < curr.val:
+            pre = dummy
+            while pre.next.val < curr.next.val:
+                pre = pre.next
+            tmp = curr.next
+            curr.next = tmp.next
+            tmp.next = pre.next
+            pre.next = tmp
+        else:
+            curr = curr.next
+    return dummy.next
+
+
 list = generate_list([1, 3, 5, 7, 8, 9])
 
 list = reverse_list_iterative(list)
