@@ -13,3 +13,36 @@ Note:
 (3) 0 < k <= 100, 0 < n <= 106, 0 < primes[i] < 1000.
 
 '''
+import heapq
+
+
+class Solution(object):
+    # http://bookshadow.com/weblog/2015/12/03/leetcode-super-ugly-number/
+    def nthSuperUglyNumber(self, n, primes):
+        """
+        :type n: int
+        :type primes: List[int]
+        :rtype: int
+        """
+        uglies = [1]
+
+        def gen(prime):
+            for ugly in uglies:
+                yield ugly * prime
+
+        # map: apply function to every item of iterable and return a list
+        # heapq.merge: Merge multiple sorted inputs into a single sorted
+
+        merged = heapq.merge(*map(gen, primes))
+        while len(uglies) < n:
+            ugly = next(merged)
+            print "ugly: ", ugly
+            print "uglies: ", uglies
+            if ugly != uglies[-1]:
+                uglies.append(ugly)
+
+        return uglies[-1]
+
+
+s = Solution()
+print s.nthSuperUglyNumber(5, [2, 7, 13, 19])
