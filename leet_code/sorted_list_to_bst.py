@@ -13,26 +13,47 @@ class Solution(object):
         :type head: ListNode
         :rtype: TreeNode
         """
-
         node, length = head, 0
         while node:
             node = node.next
             length += 1
-        self.curr = head
-        return self._sortedListToBST(0, length - 1)
+        return self._sortedListToBST(head, 0, length - 1)
 
-    def _sortedListToBST(self, left, right):
-        if left > right:
+    def _sortedListToBST(self, head, start, end):
+        if start > end:
             return None
-        mid = (left + right) / 2
-        left = self._sortedListToBST(left, mid - 1)
-        root = TreeNode(self.curr.val)
-        root.left = left
-        self.curr = self.curr.next
-        root.right = self._sortedListToBST(mid + 1, right)
-        return root
+        mid = (start + end) / 2
+        left = self._sortedListToBST(head, start, mid - 1)
+        parent = TreeNode(head.val)
+        parent.left = left
+        head = head.next
+        parent.right = self._sortedListToBST(head, mid + 1, end)
+        return parent
 
     def sortedListToBST_2(self, head):
+        """
+        :type head: ListNode
+        :rtype: TreeNode
+        """
+        self.cur = head
+        node, length = head, 0
+        while node:
+            node = node.next
+            length += 1
+        return self.build_tree(length)
+
+    def build_tree(self, n):
+        if n <= 0:
+            return None
+        l = self.build_tree(n / 2)
+        root = TreeNode(self.cur.val)
+        self.cur = self.cur.next
+        r = self.build_tree(n - n / 2 - 1)
+        root.left = l
+        root.right = r
+        return root
+
+    def sortedListToBST_3(self, head):
         if head is None:
             return None
 
@@ -54,6 +75,7 @@ class Solution(object):
             root.right = self.sortedListToBST_2(slow.next)
         return root
 
+
 s = Solution()
 head = generate_list([1, 2, 3])
-tree = s.sortedListToBST(head)
+tree = s.sortedListToBST_2(head)
