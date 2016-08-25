@@ -17,6 +17,9 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
+        if not digits or len(digits)<=0:
+            return []
+
         dict = {'2': ['a', 'b', 'c'],
                 '3': ['d', 'e', 'f'],
                 '4': ['g', 'h', 'i'],
