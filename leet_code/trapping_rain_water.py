@@ -36,3 +36,67 @@ class Solution(object):
             if min(rightmax, leftmosthigh[i]) > height[i]:
                 sum += min(rightmax, leftmosthigh[i]) - height[i]
         return sum
+
+    # http://www.lxway.net/898969464.html
+    def trap_2loop(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        if not height:
+            return 0
+
+        max_height = max(height)
+        max_index = height.index(max_height)
+
+        result = 0
+        max_left_h = 0
+        # water count = max_left_h - current_left_h
+        for i in xrange(max_index):
+            if height[i] > max_left_h:
+                max_left_h = height[i]
+            else:
+                result += max_left_h - height[i]
+
+        max_right_h = 0
+        # water count = max_right_h - current_right_h
+        for i in xrange(len(height) - 1, max_index, -1):
+            if height[i] > max_right_h:
+                max_right_h = height[i]
+            else:
+                result += max_right_h - height[i]
+
+        return result
+
+    # http://www.lxway.net/898969464.html
+    def trap_1loop(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        if not height:
+            return 0
+
+        result = 0
+        left = 0
+        right = len(height) - 1
+        max_left_height = 0
+        max_right_height = 0
+
+        while (left < right):
+            if height[left] < height[right]:
+                # check left side
+                if height[left] < max_left_height:
+                    result += max_left_height - height[left]
+                else:
+                    max_left_height = height[left]
+                left += 1
+            else:
+                if height[right] < max_right_height:
+                    result += max_right_height - height[right]
+                else:
+                    max_right_height = height[right]
+
+                right -= 1
+
+        return result
