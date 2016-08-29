@@ -23,6 +23,8 @@ There exist two distinct solutions to the 4-queens puzzle:
   "...Q",
   ".Q.."]
 ]
+
+http://www.jianshu.com/p/8f3b8df612ae
 http://www.jiuzhang.com/solutions/n-queens/
 '''
 
@@ -33,21 +35,50 @@ class Solution(object):
         :type n: int
         :rtype: List[List[str]]
         """
+        result = []
+        if n <= 0:
+            return result
 
-    def attack(self, row, col):
-        for c, r in self.cols.it
+        cols = []  # which col has queen in one row
+        self.search(n, cols, result)
+        return result
 
-        def dfs(depth, board, valuelist, solution):
-            # for i in range(len(board)):
-            if depth == len(board):
-                solution.append(valuelist)
-            for row in range(len(board)):
-                if check(depth, row, board):
-                    s = '.' * len(board)
-                    board[depth] = row
-                    dfs(depth + 1, board, valuelist + [s[:row] + 'Q' + s[row + 1:]], solution)
+    def search(self, n, cols, result):
+        if len(cols) == n:
+            result.append(self.drawBoard(cols))
+            return
 
-        board = [-1 for i in range(n)]
-        solution = []
-        dfs(0, board, [], solution)
-        return solution
+        for col in range(n):
+            if not self.isValid(cols, col):
+                continue
+            self.search(n, cols + [col], result)
+
+    def isValid(self, cols, col):
+        currentRowNumber = len(cols)
+        for i in range(currentRowNumber):
+            # same column
+            if cols[i] == col:
+                return False
+            # left-top to right-bottom
+            if i - cols[i] == currentRowNumber - col:
+                return False
+            # right-top to left-bottom
+            if i + cols[i] == currentRowNumber + col:
+                return False
+        return True
+
+    def drawBoard(self, cols):
+        board = []
+        for i in range(len(cols)):
+            line = ""
+            for j in range(len(cols)):
+                if j == cols[i]:
+                    line += "Q"
+                else:
+                    line += "."
+            board.append(line)
+        return board
+
+
+s = Solution()
+print s.solveNQueens(5)
