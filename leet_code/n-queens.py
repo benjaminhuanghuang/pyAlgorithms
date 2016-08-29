@@ -39,7 +39,7 @@ class Solution(object):
         if n <= 0:
             return result
 
-        cols = []  # which col has queen in one row
+        cols = []  # col nums of the queen's position in each row
         self.search(n, cols, result)
         return result
 
@@ -54,20 +54,24 @@ class Solution(object):
             self.search(n, cols + [col], result)
 
     def isValid(self, cols, col):
-        currentRowNumber = len(cols)
-        for i in range(currentRowNumber):
+        row_count = len(cols)
+        for i in range(row_count):
             # same column
             if cols[i] == col:
                 return False
             # left-top to right-bottom
-            if i - cols[i] == currentRowNumber - col:
+            if i - cols[i] == row_count - col:
                 return False
             # right-top to left-bottom
-            if i + cols[i] == currentRowNumber + col:
+            if i + cols[i] == row_count + col:
                 return False
         return True
 
     def drawBoard(self, cols):
+        '''
+        :param cols[i]: col num of queen's position in each row
+        :return:
+        '''
         board = []
         for i in range(len(cols)):
             line = ""
