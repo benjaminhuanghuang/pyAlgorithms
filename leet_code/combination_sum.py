@@ -26,14 +26,15 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         candidates.sort()
-        self.ret = []
+        self.result = []
         self.dfs(candidates, target, 0, [])
-        return self.ret
+        return self.result
 
     def dfs(self, candidates, target, start, valuelist):
         length = len(candidates)
         if target == 0:
-            return Solution.ret.append(valuelist)
+            return self.result.append(valuelist)
+
         for i in range(start, length):
             if target < candidates[i]:
                 return

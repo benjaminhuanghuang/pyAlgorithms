@@ -12,7 +12,7 @@ Note: m and n will be at most 100.
 
 
 class Solution(object):
-    # path[x][y] = path[x][y-1] + path[x-1][y]
+    # dp[x][y] = dp[x][y-1] + dp[x-1][y]
     def uniquePaths(self, m, n):
         """
         :type m: int
@@ -22,8 +22,7 @@ class Solution(object):
         if m < 1 or n < 1:
             return 0
 
-        path = [[0] * m] * n
-
+        path = [[0 for i in range(m)] for j in range(n)]
         for i in range(n):
             path[i][0] = 1
         for j in range(m):
@@ -33,4 +32,4 @@ class Solution(object):
             for j in range(1, m):
                 path[i][j] = path[i - 1][j] + path[i][j - 1]
 
-        return path[n - 1][m - 1]
+        return path[-1][-1]
