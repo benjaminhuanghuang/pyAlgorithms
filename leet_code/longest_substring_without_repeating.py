@@ -48,6 +48,7 @@ class Solution(object):
             dict[s[i]] = i
         return maxlen
 
+    # http://bookshadow.com/weblog/2015/04/05/leetcode-longest-substring-without-repeating-characters/
     def lengthOfLongestSubstring_3(self, s):
 
         max_len = 0
