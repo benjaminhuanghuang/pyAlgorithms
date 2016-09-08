@@ -13,7 +13,7 @@ Follow up: Could you improve it to O(n log n) time complexity?
 
 
 class Solution(object):
-    # dp[i] = l
+    # dp[x] = max(dp[x], dp[y] + 1) y < x and nums[x] > nums[y]
     def lengthOfLIS_n2(self, nums):
         """
         :type nums: List[int]
@@ -27,3 +27,24 @@ class Solution(object):
                 if nums[prev] < val:
                     dp[curr] = max(dp[curr], dp[prev] + 1)
         return max(dp)
+
+    def lengthOfLIS_nlogn(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        size = len(nums)
+        dp = []
+        for x in range(size):
+            low, high = 0, len(dp) - 1
+            while low <= high:
+                mid = (low + high) / 2
+                if dp[mid] >= nums[x]:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+            if low >= len(dp):
+                dp.append(nums[x])
+            else:
+                dp[low] = nums[x]
+        return len(dp)
