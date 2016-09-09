@@ -12,7 +12,8 @@ A = [2,3,1,1,4], return true.
 
 A = [3,2,1,0,4], return false.
 
-
+reference
+    https://www.hrwhisper.me/leetcode-jump-game/
 '''
 
 
@@ -51,6 +52,16 @@ class Solution(object):
                 return False
         return True
 
+    # cover is the max index can jump to
+    def canJump_2(self, nums):
+        cover = 0
+        for i in xrange(len(nums)):
+            if cover >= len(nums) - 1:
+                return True
+            if cover >= i:
+                cover = max(cover, nums[i] + i)
+        return False
+
 
 # input = [0, 1]
 s = Solution()
@@ -59,4 +70,4 @@ s = Solution()
 # print s.canJump(input)
 
 input = [2, 5, 0, 0]
-print s.canJump(input)
+print s.canJump_2(input)
