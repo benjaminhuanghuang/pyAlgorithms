@@ -35,7 +35,9 @@ class Solution(object):
 
     def DFS(self, result, candidates, target, start, valuelist):
         length = len(candidates)
-        if target == 0 and valuelist not in result:
+
+        # if target == 0 and valuelist not in result:  # [1,7], [1,7]
+        if target == 0:
             return result.append(valuelist)
         for i in range(start, length):
             if target < candidates[i]:
@@ -46,3 +48,5 @@ class Solution(object):
 input = [10, 1, 2, 7, 6, 1, 5]
 s = Solution()
 print s.combinationSum2(input, 8)
+
+print [1, 7] == [1, 7]

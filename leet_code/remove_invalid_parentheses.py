@@ -9,6 +9,10 @@ Examples:
 "()())()" -> ["()()()", "(())()"]
 "(a)())()" -> ["(a)()()", "(a())()"]
 ")(" -> [""]
+
+
+reference:
+    http://bookshadow.com/weblog/2015/11/05/leetcode-remove-invalid-parentheses/
 '''
 
 
