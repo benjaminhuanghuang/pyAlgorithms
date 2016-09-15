@@ -39,3 +39,11 @@ return [3, 4]
 Show Hint
 
 '''
+
+class Solution(object):
+    def findMinHeightTrees(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """

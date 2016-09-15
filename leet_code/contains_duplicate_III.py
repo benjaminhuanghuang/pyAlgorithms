@@ -19,6 +19,7 @@ class Solution(object):
         """
         if k < 1 or t < 0:
             return False
+
         numDict = collections.OrderedDict()
         for x in range(len(nums)):
             key = nums[x] / max(1, t)
@@ -28,4 +29,29 @@ class Solution(object):
             numDict[key] = nums[x]
             if x >= k:
                 numDict.popitem(last=False)
+        return False
+
+    # https://www.hrwhisper.me/leetcode-contains-duplicate-i-ii-iii/
+    # put num to nums/(t+1) bucket
+    def containsNearbyAlmostDuplicate_2(self, nums, k, t):
+        """
+        :type nums: List[int]
+        :type k: int
+        :type t: int
+        :rtype: bool
+        """
+
+        if t < 0:
+            return False
+        div = t + 1
+        vis = {}
+        for i, num in enumerate(nums):
+            index = num / div
+            if index in vis \
+                    or index - 1 in vis and abs(vis[index - 1] - num) <= t \
+                    or index + 1 in vis and abs(vis[index + 1] - num) <= t:
+                return True
+            vis[index] = num
+            if i >= k:
+                del vis[nums[i - k] / div]
         return False
