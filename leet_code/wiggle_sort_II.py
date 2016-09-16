@@ -47,6 +47,7 @@ class Solution(object):
         right = n - 1
         while (left <= right):
             if nums[left] > mid:
+                pass
             elif nums[left] < mid:
                 nums[left], nums[right] = nums[right], nums[left]
                 right -= 1
