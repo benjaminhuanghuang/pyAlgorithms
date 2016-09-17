@@ -1,5 +1,5 @@
 '''
-384. Shuffle an Array
+384. Shuffle an Array [mastered]
 
 Shuffle a set of numbers without duplicates.
 
