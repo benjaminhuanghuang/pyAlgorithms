@@ -1,5 +1,5 @@
 '''
-150. Evaluate Reverse Polish Notation [easy][done]
+150. Evaluate Reverse Polish Notation [easy][mastered]
 
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
 
