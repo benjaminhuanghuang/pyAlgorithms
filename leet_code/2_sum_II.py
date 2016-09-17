@@ -1,5 +1,5 @@
 '''
-167. Two Sum II - Input array is sorted
+167. Two Sum II - Input array is sorted [mastered]
 
 Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a
 specific target number.
@@ -31,7 +31,8 @@ class Solution(object):
                     return [i + 1, j + 1]
         return [-1, -1]
 
-    def twoSum_niave(self, numbers, target):
+    # O(n log n) runtime, O(1) space
+    def twoSum(self, numbers, target):
         """
         :type numbers: List[int]
         :type target: int
@@ -39,10 +40,11 @@ class Solution(object):
         """
         if not numbers or len(numbers) < 2:
             return [-1, -1]
+
         left = 0
         right = len(numbers) - 1
 
-        while (left < right):
+        while left < right:
             sum = numbers[left] + numbers[right]
             if sum == target:
                 return [left + 1, right + 1]

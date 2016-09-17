@@ -1,5 +1,5 @@
 '''
-1. Two Sum
+1. Two Sum [mastered]
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -15,6 +15,7 @@ return [0, 1].
 
 
 class Solution(object):
+    # O(n) runtime, O(n) space
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
