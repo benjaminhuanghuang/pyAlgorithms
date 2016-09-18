@@ -5,6 +5,8 @@ brutal force
 
 time limit exceeded
 
+Greedy Algorithm
+
 
 Update history
 =====================================
@@ -29,3 +31,5 @@ Update history
 9.07   242/378
 
 9.08   252/378
+
+9.17   293/386

@@ -27,12 +27,25 @@ Return 0.
 reference:
     http://www.cnblogs.com/grandyang/p/5165821.html
 '''
+
+
 class Solution(object):
+    # http://bookshadow.com/weblog/2016/01/27/leetcode-patching-array/
+    # http://blog.csdn.net/liyuefeilong/article/details/50616268
     def minPatches(self, nums, n):
         """
         :type nums: List[int]
         :type n: int
         :rtype: int
         """
-
-
+        curr_summary = 1
+        idx, ans = 0, 0
+        size = len(nums)
+        while curr_summary <= n:
+            if idx < size and nums[idx] <= curr_summary:
+                curr_summary += nums[idx]
+                idx += 1
+            else:
+                curr_summary <<= 1
+                ans += 1
+        return ans
