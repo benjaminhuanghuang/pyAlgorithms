@@ -17,8 +17,10 @@ Return 3.
 class Solution(object):
     # http://www.cnblogs.com/zuoyuan/p/3767256.html
     # https://www.hrwhisper.me/leetcode-dynamic-programming/
-    # dp[i][j] is s[i] to t[j]
-    # dp[i][0] = 1, t is empty, delete all char in s
+    # https://shenjie1993.gitbooks.io/leetcode-python/content/115%20Distinct%20Subsequences.html
+    #
+    # dp[i][j] is the count of subsequence in s[:i] match t[:j]
+    # dp[i][0] = 1, t is empty, delete all char in s can get t
     # if s[i] == t[j] , dp[i][j]=dp[i-1][j] + dp[i-1][j-1]
     # if s[i]!=t[j]: dp[i][j]=dp[i-1][j]
     def numDistinct(self, s, t):
