@@ -18,7 +18,7 @@ class Solution(object):
         return self.helper(list, 1)
 
     def helper(self, list, depth):
-        result = 0;
+        result = 0
         for item in list:
             if isinstance(item, int):
                 weight = item * depth
