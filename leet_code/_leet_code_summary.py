@@ -8,6 +8,8 @@ task_folder = os.path.join(current_dir, "task")
 
 count_files = 0  # [f for f in listdir(current_dir) if isfile(join(current_dir, f))]
 count_mastered = 0
+count_dp = 0
+
 for f in listdir(current_dir):
     if f in ["_leet_code_summary.py", "__init__.py"]:
         continue
@@ -18,8 +20,11 @@ for f in listdir(current_dir):
             content = file.read()
             if content.find("[mastered]") > 0:
                 count_mastered += 1
+            if content.find("[dp]") > 0:
+                count_dp += 1
 
 print "============================================"
 print "# {0} problems were solved".format(count_files)
 print "# {0:3} problems were mastered".format(count_mastered)
+print "# {0:3} dp problems".format(count_mastered)
 print "============================================"
