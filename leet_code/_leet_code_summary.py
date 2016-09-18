@@ -26,5 +26,5 @@ for f in listdir(current_dir):
 print "============================================"
 print "# {0} problems were solved".format(count_files)
 print "# {0:3} problems were mastered".format(count_mastered)
-print "# {0:3} dp problems".format(count_mastered)
+print "# {0:3} dp problems".format(count_dp)
 print "============================================"
