@@ -32,6 +32,7 @@ class Solution(object):
         """
         ans = []
         for x in range(1024):
+            # bin convert int to a bin string
             if bin(x).count('1') == num:
                 ans += self.parseTime(x)
         return ans

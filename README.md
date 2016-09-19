@@ -8,6 +8,13 @@ time limit exceeded
 Greedy Algorithm
 
 
+Problem number gap
+=====================================
+174 to 178 (4)
+180 to 185 (6) 
+192 to 197 (6)
+262        (1)
+
 Update history
 =====================================
 8.3    83/363 All free easy problems  

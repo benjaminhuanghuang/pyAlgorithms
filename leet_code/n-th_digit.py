@@ -39,6 +39,12 @@ class Solution(object):
                 break
             n -= d * (i + 1)
         n -= 1
+        print "d * (i+1) ", d * (i + 1)
+        print "i ", i
+        print "n ", n
+        print "d ", d
+
+        print str(10 ** i + n / (i + 1))
         return int(str(10 ** i + n / (i + 1))[n % (i + 1)])
 
 
