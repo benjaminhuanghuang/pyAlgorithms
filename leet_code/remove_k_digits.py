@@ -41,12 +41,13 @@ class Solution(object):
             while stack[-1] > num[x] and len(stack) + k > x + 1:
                 stack.pop()
             stack.append(num[x])
+
         while len(stack) > size - k + 1:
             stack.pop()
         return str(int(''.join(stack)))
 
     # http://bookshadow.com/weblog/2016/09/18/leetcode-remove-k-digits/
-    def removeKdigits(self, num, k):
+    def removeKdigits_2(self, num, k):
         """
         :type num: str
         :type k: int

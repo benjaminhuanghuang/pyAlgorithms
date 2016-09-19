@@ -47,7 +47,38 @@ class Solution(object):
         print str(10 ** i + n / (i + 1))
         return int(str(10 ** i + n / (i + 1))[n % (i + 1)])
 
+    def n_digits_num(self):
+        i = 1
+        while True:
+            num = 10 ** (i - 1) - 1
+            if num > 2 ** 31:
+                break
+            digit_count = 9 * (10 ** (i - 1)) * i
 
-n = 1111111
+            print "There a {} digits come with {}-digits numbers ".format(digit_count, i)
+            i += 1
+
+    def findNthDigit_2(self, n):
+        # how many digits come with i-digits number
+        arr = [0, 9, 189, 2889, 38889, 488889, 5888889, 68888889, 788888889]
+        digits = 0  # how many digits the number n has
+        while True:
+            if (digits > 8) or (arr[digits] > n):
+                break
+            digits += 1
+        print digits
+
+        t = n - arr[digits - 1] - 1   # location in the section
+        num = (t / digits) + (10 ** (digits - 1))   # the number has n-th digit
+        p = digits - (t % digits) - 1   # the digit of the number
+        for i in xrange(p):
+            num /= 10
+        return num % 10
+
+
+n = 12
 s = Solution()
-print s.findNthDigit(n)
+# s.n_digits_num()
+# print 2 ** 31
+# print s.findNthDigit(n)
+print s.findNthDigit_2(n)
