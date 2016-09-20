@@ -11,10 +11,9 @@ print matrix
 
 a = [1] * 2
 b = [a] * 2
-a = [2]
 
+a = [2]
 print b
 
 b[1][1] = 3
-
 print b
