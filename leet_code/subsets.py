@@ -36,10 +36,10 @@ class Solution(object):
         self.helper(result, line, nums, 0)
         return result
 
-    def helper(self, result, line, nums, k):
+    def helper(self, result, line, nums, pos):
         result.append(list(line))    # append a copy of line to result
 
-        for i in range(k, len(nums)):
+        for i in range(pos, len(nums)):
             line.append(nums[i])
             self.helper(result, line, nums, i + 1)
             line.pop()
