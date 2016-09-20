@@ -7,5 +7,5 @@ chars = ["a", "b", "c"]
 chars += "d"
 print chars
 
-dddd = "e",
-print chars
+tmp = "e",
+print tmp
