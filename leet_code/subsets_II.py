@@ -1,4 +1,6 @@
 '''
+90. Subsets II
+
 Given a collection of integers that might contain duplicates, nums, return all possible subsets.
 
 Note: The solution set must not contain duplicate subsets.
@@ -31,20 +33,42 @@ class Solution(object):
         # return list(reversed(p))
         return p
 
-
     def subsetsWithDup(self, S):
         def dfs(depth, start, valuelist):
-            if valuelist not in res: res.append(valuelist)
+            if valuelist not in res:
+                res.append(valuelist)
             if depth == len(S):
                 return
             for i in range(start, len(S)):
-                dfs(depth+1, i+1, valuelist+[S[i]])
+                dfs(depth + 1, i + 1, valuelist + [S[i]])
 
         S.sort()
         res = []
         dfs(0, 0, [])
         return res
 
+    def subsetsWithDup_9(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        nums.sort()
+        result = []
+        self.helper(result, [], nums, 0)
+        return result
+
+    def helper(self, result, l, nums, pos):
+        result.append(list(l))
+        for i in xrange(pos, len(nums)):
+            if i != pos and nums[i] == nums[i - 1]:
+                continue
+            l.append(nums[i])
+            self.helper(result, l, nums, i + 1)
+            l.pop()
+
+
 s = Solution()
 
-print s.subsetsWithDup([1, 2, 2])
+print s.subsetsWithDup([1, 2, 2, 2])
+
+print s.subsetsWithDup_9([1, 2, 2, 2])

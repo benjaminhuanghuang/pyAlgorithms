@@ -37,13 +37,12 @@ class Solution(object):
         return result
 
     def helper(self, result, line, nums, pos):
-        result.append(list(line))    # append a copy of line to result
+        result.append(list(line))  # append a copy of line to result
 
         for i in range(pos, len(nums)):
             line.append(nums[i])
             self.helper(result, line, nums, i + 1)
             line.pop()
-
 
     def subsets_2(self, nums):
         """
@@ -58,14 +57,14 @@ class Solution(object):
         return result
 
     def helper(self, nums, result, line):
-        result.append(list(line))    # append a copy of line to result
+        result.append(list(line))  # append a copy of line to result
 
         for i, x in enumerate(nums):
             # in this loop, line + nums[i]...line + nums[n]
             line.append(x)
-            self.helper(nums[i+1:], result, line)
+            self.helper(nums[i + 1:], result, line)
             line.pop()
 
 
 s = Solution()
-print s.subsets_2([1,2,3])
+print s.subsets_2([1, 2, 3])
