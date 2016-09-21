@@ -16,8 +16,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 
 
 class Solution(object):
-    # http://www.cnblogs.com/zuoyuan/p/3780167.html
-    # http://blog.csdn.net/nomasp/article/details/49913627
+    # https://www.hrwhisper.me/leetcode-permutations/
     #
     def nextPermutation(self, nums):
         """
