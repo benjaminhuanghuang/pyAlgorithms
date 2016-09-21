@@ -108,17 +108,17 @@ class Solution(object):
                 return False
         return True
 
-    def dfs(self, i, visited, graph):
-        if visited[i] == -1:
+    def dfs(self, course, visited, graph):
+        if visited[course] == -1:
             return False
-        elif visited[i] == 1:
+        elif visited[course] == 1:
             return True
 
-        visited[i] = -1
-        for j in graph[i]:
+        visited[course] = -1
+        for j in graph[course]:
             if not self.dfs(j, visited, graph):
                 return False
-        visited[i] = 1
+        visited[course] = 1
         return True
 n = 2
 ps = [[1, 0]]
