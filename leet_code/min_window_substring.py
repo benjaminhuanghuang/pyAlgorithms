@@ -38,45 +38,47 @@ class Solution(object):
 
         return res
 
-    def minWindow_9(self, s, t):
+    # http://blog.sina.com.cn/s/blog_eb52001d0102v2il.html
+    def minWindow_9(self, source, target):
         """
-        :type s: str
-        :type t: str
+        :type source: str
+        :type target: str
         :rtype: str
         """
 
-        if (t == ""):
+        if (target == ""):
             return ""
-        d, dt = {}, dict.fromkeys(t, 0)
-        for c in t:
-            d[c] = d.get(c, 0) + 1
-        pi, pj, cont = 0, 0, 0
-        if (s == "" or t == ""):
-            return ""
+        d_char_in_target, d_char_found = {}, dict.fromkeys(target, 0)
+        for c in target:
+            d_char_in_target[c] = d_char_in_target.get(c, 0) + 1
+
+        left, right, cont = 0, 0, 0
         ans = ""
-        while pj < len(s):
-            if s[pj] in dt:
-                if dt[s[pj]] < d[s[pj]]:
+        while right < len(source):
+            if source[right] in d_char_found:
+                if d_char_found[source[right]] < d_char_in_target[source[right]]:
                     cont += 1
-                dt[s[pj]] += 1
-            if cont == len(t):
-                while pi < pj:
-                    if s[pi] in dt:
-                        if dt[s[pi]] == d[s[pi]]:
+                d_char_found[source[right]] += 1
+
+            if cont == len(target):   # find all char of target in source
+                while left < right:
+                    if source[left] in d_char_found:
+                        if d_char_found[source[left]] == d_char_in_target[source[left]]:
                             break
-                        dt[s[pi]] -= 1
-                    pi += 1
-                if ans == '' or pj - pi < len(ans):
-                    ans = s[pi:pj + 1]
-                dt[s[pi]] -= 1
-                pi += 1
+                        d_char_found[source[left]] -= 1
+                    left += 1
+
+                if ans == '' or right - left < len(ans):
+                    ans = source[left:right + 1]
+                d_char_found[source[left]] -= 1
+                left += 1
                 cont -= 1
-            pj += 1
+            right += 1
         return ans
 
 
 source = "ADOBECODEBANC"
-target = "ABC"
+target = "AABN"
 
 s = Solution()
-print s.minWindow(source, target)
+print s.minWindow_9(source, target)
