@@ -30,12 +30,37 @@ is represented.
 
 '''
 
+
 class Solution(object):
+    # Just add parameter res to the dfs function from #207. Course Schedule
     def findOrder(self, numCourses, prerequisites):
         """
         :type numCourses: int
         :type prerequisites: List[List[int]]
         :rtype: List[int]
         """
+        graph = [[] for x in range(numCourses)]
+        visited = [0] * numCourses
 
+        for course, pre in prerequisites:
+            graph[course].append(pre)
 
+        res = []
+        for i in range(numCourses):
+            if not self.dfs(i, visited, graph, res):
+                return []
+        return res
+
+    def dfs(self, course, visited, graph, res):
+        if visited[course] == -1:
+            return False
+        elif visited[course] == 1:
+            return True
+
+        visited[course] = -1
+        for j in graph[course]:
+            if not self.dfs(j, visited, graph, res):
+                return False
+        visited[course] = 1
+        res.append(course)
+        return True
