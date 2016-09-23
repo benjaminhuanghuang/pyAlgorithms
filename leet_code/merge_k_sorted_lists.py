@@ -21,8 +21,9 @@ class Solution(object):
             if node:
                 heap.append((node.val, node))
 
+        # Transform list x into a heap, in-place, in linear time.
         heapq.heapify(heap)
-        head = ListNode(0);
+        head = ListNode(0)
         curr = head
         while heap:
             pop = heapq.heappop(heap)
