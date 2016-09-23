@@ -27,7 +27,9 @@ Could you solve it in linear time?
 import collections
 import heapq
 
+
 class Solution(object):
+    # Use double-ended-queue
     # put number index into deque. d[0] contains the index of the biggest one
     # O(n) time,  O(k)space
     def maxSlidingWindow_deque(self, nums, k):
@@ -54,32 +56,6 @@ class Solution(object):
                 res.append(nums[d[0]])
 
         return res
-
-    def maxSlidingWindow_heapq(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
-
-        res = []
-        hq = heapq()
-
-        for i, n in enumerate(nums):
-            # if n > d[-1], clear d
-            while d and nums[d[-1]] < n:
-                d.pop()
-
-            d.append(i)
-
-            if d[0] == i - k:
-                d.popleft()
-
-            if i >= k - 1:
-                res.append(nums[d[0]])
-
-        return res
-
 
 
 nums = [1, 3, -1, -3, 5, 3, 6, 7]
