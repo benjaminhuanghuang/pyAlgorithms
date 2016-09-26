@@ -8,7 +8,7 @@ time limit exceeded
 Greedy Algorithm
 
 
-Problem number gap
+Problem number gap (407 - 390)
 =====================================
 174 to 178 (4)
 180 to 185 (6) 
@@ -40,3 +40,5 @@ Update history
 9.08   252/378
 
 9.17   293/386
+
+9.26   310/390
