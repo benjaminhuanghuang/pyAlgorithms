@@ -27,7 +27,7 @@ class Solution(object):
         x = abs(x)
         while x != 0:
             if result > max_int / 10:
-                return 0;
+                return 0
             result = result * 10 + x % 10
             x = x / 10
         result *= sign
