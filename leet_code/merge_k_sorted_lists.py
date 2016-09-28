@@ -33,6 +33,7 @@ class Solution(object):
                 heapq.heappush(heap, (pop[1].next.val, pop[1].next))
         return head.next
 
+    # https://www.youtube.com/watch?v=xTiYNDinQ98
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
