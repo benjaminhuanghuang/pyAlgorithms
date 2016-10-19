@@ -72,4 +72,4 @@ class Solution(object):
 
 
 s = Solution()
-print s.numDecodings_3("12")
+print s.numDecodings("100")

@@ -69,6 +69,6 @@ class Solution(object):
 
 s = Solution()
 
-print s.subsetsWithDup([1, 2, 2, 2])
+# print s.subsetsWithDup([1, 2, 2, 2])
 
-print s.subsetsWithDup_9([1, 2, 2, 2])
+print s.subsetsWithDup_9([1, 2, 2])
