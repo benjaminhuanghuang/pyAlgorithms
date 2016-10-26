@@ -24,11 +24,26 @@ import collections
 
 class Solution(object):
     # http://blog.csdn.net/friendbkf/article/details/50346299
+    # https://www.hrwhisper.me/leetcode-maximum-product-of-word-lengths/
     def maxProduct(self, words):
         """
         :type words: List[str]
         :rtype: int
         """
+        n = len(words)
+        words_bits = [0] * n
+        # create word bits format for each word
+        for i, word in enumerate(words):
+            for c in word:
+                words_bits[i] |= 1 << (ord(c) - 97)
+
+        ans = 0
+        for i in xrange(n):
+            for j in xrange(i + 1, n):
+                if not (words_bits[i] & words_bits[j]):
+                    # two words do not have common letter
+                    ans = max(ans, len(words[i]) * len(words[j]))
+        return ans
 
 
     # max(O(n^2), O(n*m)) n = count of words, m is average length of words
