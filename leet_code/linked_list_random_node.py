@@ -38,6 +38,7 @@ class Solution(object):
         while head:
             if random.randint(0, count) == 0:
                 answer = head.val
+                break
             head = head.next
             count += 1
         return answer
