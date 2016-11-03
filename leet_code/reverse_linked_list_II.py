@@ -14,6 +14,7 @@ Given m, n satisfy the following condition:
 '''
 
 from data_structure.list_node import ListNode
+from utilities.data_generator import *
 
 
 class Solution(object):
@@ -41,3 +42,12 @@ class Solution(object):
             head1.next.next = tmp
 
         return dummy.next
+
+
+head = generate_list([1, 2, 3, 4, 5])
+
+s = Solution()
+res = s.reverseBetween(head, 2, 4)
+while res:
+    print res.val
+    res = res.next

@@ -23,7 +23,7 @@ def genertate_bin_tree(nums):
 def generate_list(nums):
     head = ListNode(0)
     curr = head
-    for i in xrange(1,len(nums)):
+    for i in xrange(len(nums)):
         curr.next = ListNode(nums[i])
         curr = curr.next
 
