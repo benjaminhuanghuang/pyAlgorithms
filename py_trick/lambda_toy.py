@@ -19,3 +19,9 @@ print people
 # sort by element[1] descending
 people.sort(key=lambda d: d[1], reverse=True)
 print people
+
+# filter
+t="target"
+s="source"
+for i, c in filter(lambda x: x[1] in t, enumerate(s)):
+    pass

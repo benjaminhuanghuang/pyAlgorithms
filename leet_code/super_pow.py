@@ -15,6 +15,7 @@ Example2:
 a = 2
 b = [1,0]
 
+
 Result: 1024
 
 '''
@@ -32,4 +33,17 @@ class Solution(object):
         for bi in b[::-1]:
             ans = ans * a ** bi % mod
             a = a ** 10 % mod
+        return ans
+
+    def superPow(self, a, b):
+        """
+        :type a: int
+        :type b: List[int]
+        :rtype: int
+        """
+        ans = 1
+        mod = 1337
+        for bi in b[::-1]:
+            ans = (ans% mod) * (a ** bi% mod) %mod
+            a = (a %mod) ** 10 % mod
         return ans
