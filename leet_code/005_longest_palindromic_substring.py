@@ -34,23 +34,25 @@ class Solution(object):
         return True
 
     def longestPalindrome_2(self, s):
-        palistr = ''
-        for index in range(len(s)):
-            # for bab
-            sub_str = self.pali(s, index, index)
-            if len(palistr) < len(sub_str):
-                palistr = sub_str
-            # for baab
-            sub_str = self.pali(s, index, index + 1)
-            if len(palistr) < len(sub_str):
-                palistr = sub_str
-        return palistr
+        """
+        :type s: str
+        :rtype: str
+        """
+        res = ""
+        for i in xrange(len(s)):
+            sub_str = self.get_pali(s, i, i)
+            if len(res) < len(sub_str):
+                res = sub_str
+            sub_str = self.get_pali(s, i, i + 1)
+            if len(res) < len(sub_str):
+                res = sub_str
+        return res
 
-    def pali(self, s, left, right):
+    def get_pali(self, s, left, right):
         while left >= 0 and right < len(s) and s[left] == s[right]:
             left -= 1
             right += 1
-        return s[left + 1:right]
+        return s[left + 1: right]
 
 
 s = Solution()

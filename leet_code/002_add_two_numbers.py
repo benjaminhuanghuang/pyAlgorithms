@@ -67,3 +67,43 @@ class Solution(object):
             else:
                 break
         return head
+
+    def addTwoNumbers_2(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        if not (l1 and l2):
+            return None
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+        result = ListNode(-1)
+        h = result
+        curry = 0
+        while l1 or l2:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+            sum = v1 + v2 + curry
+            h.next = ListNode(sum % 10)
+            curry = sum / 10
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
+            h = h.next
+        if curry > 0:
+            h.next = ListNode(curry)
+        return result.next
+
+
+from utilities import data_generator
+
+s = Solution()
+l1 = data_generator.generate_list([4, 3, 1])
+l2 = data_generator.generate_list([4, 3, 1])
+
+res = s.addTwoNumbers_2(l1, l2)
+print res

@@ -57,10 +57,10 @@ class Solution(object):
         for c in s:
             end += 1
             countDict[c] = countDict.get(c, 0) + 1
-            while countDict[c] > 1:
+            while countDict[c] > 1:     # my mistake:  use if here , can not pass "pwwk"
                 countDict[s[start]] -= 1
                 start += 1
-            max_len = max(max_len, end - start)
+            max_len = max(max_len, end - start)    # my mistake : use end - start + 1
         return max_len
 
 s = Solution()
