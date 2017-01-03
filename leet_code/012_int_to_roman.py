@@ -42,7 +42,7 @@ class Solution(object):
                 result += (ROMAN[i + 1])
             elif digit == 5:
                 result += (ROMAN[i + 1])
-            elif 0 < digit and digit <= 8:
+            elif 6 <= digit and digit <= 8:
                 result += (ROMAN[i + 1])
                 result += (ROMAN[i] * (digit - 5))
             elif digit == 9:
@@ -55,4 +55,4 @@ class Solution(object):
 
 
 s = Solution()
-print s.intToRoman(1500)
+print s.intToRoman(8)
