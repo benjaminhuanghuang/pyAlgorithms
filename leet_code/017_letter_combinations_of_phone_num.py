@@ -17,7 +17,7 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
-        if not digits or len(digits)<=0:
+        if not digits or len(digits) <= 0:
             return []
 
         dict = {'2': ['a', 'b', 'c'],
@@ -53,3 +53,39 @@ class Solution(object):
             '9': 'wxyz'
         }
         return reduce(lambda acc, digit: [x + y for x in acc for y in kvmaps[digit]], digits, [''])
+
+
+class SolutionMy(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+
+        if not digits or len(digits) <= 0:
+            return []
+
+        self.dict = {'2': ['a', 'b', 'c'],
+                     '3': ['d', 'e', 'f'],
+                     '4': ['g', 'h', 'i'],
+                     '5': ['j', 'k', 'l'],
+                     '6': ['m', 'n', 'o'],
+                     '7': ['p', 'q', 'r', 's'],
+                     '8': ['t', 'u', 'v'],
+                     '9': ['w', 'x', 'y', 'z']}
+        self.solution = []
+        self.dfs(0, "", digits)
+        return self.solution
+
+    def dfs(self, i, combination, digits):
+        if len(combination) == len(digits):
+            self.solution.append(combination)
+            return
+        for c in self.dict[digits[i]]:
+            tmp = combination + c
+            self.dfs(i + 1, tmp, digits)
+
+
+solution = SolutionMy()
+rest = solution.letterCombinations("24")
+print rest
