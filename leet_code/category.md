@@ -5,6 +5,7 @@ LeetCode C# Implementation
 - 003. Longest Substring Without Repeating Characters # double point + dict
 - 005. Longest Palindromic Substring
 - 010. Regular Expression Matching
+- 014. Longest Common Prefix
 
 **Python int overflow**:
 - 007. Reverse Integer
@@ -25,6 +26,9 @@ LeetCode C# Implementation
 - 275. H-Index II
 - 367. Valid Perfect Square
 - 378. Kth Smallest Element in a Sorted Matrix 
+
+**Combinations**
+- 017. Letter Combinations of a Phone Number    # dfs
 
 **Bitwise**
 - 136. Single Number

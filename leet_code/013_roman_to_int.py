@@ -7,6 +7,7 @@ Example
     XII -> 12
     XXI -> 21
     XCIX -> 99
+    "DCXXI"
 
 Input is guaranteed to be within the range from 1 to 3999.
 
@@ -38,3 +39,9 @@ def roman_to_int(s):
             sum += ROMAN[s[index]]
         index -= 1
     return sum
+
+s = "VIII"
+s = "XCIX"
+
+num = roman_to_int(s)
+print num
