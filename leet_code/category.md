@@ -29,6 +29,7 @@ LeetCode C# Implementation
 
 **Combinations**
 - 017. Letter Combinations of a Phone Number    # dfs
+- 022. Generate Parentheses        # dfs, left < right
 
 **Bitwise**
 - 136. Single Number
@@ -65,7 +66,8 @@ LeetCode C# Implementation
 - 095. Unique Binary Search Trees II
 
 **LinkedList**:
-- 019. Remove Nth Node From End of List         : Linked list dummy header
+- 019. Remove Nth Node From End of List         : dummy head and fast-slow point
+- 021. Merge Two Sorted Lists                   : dummy head  
 - 023. Merge k Sorted Lists                     : Min heap and Divide and conquer!
 - 024. Swap Node in Pairs                       : Iteratively or recursively
 - 061. Rotate List

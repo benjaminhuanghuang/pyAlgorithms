@@ -20,14 +20,15 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        res = ListNode(0)
-        res.next = head
-        tmp = res
+        feak_head = ListNode(0)
+        feak_head.next = head
+        slow = feak_head
+        fast = head
         for i in range(0, n):
-            head = head.next
+            fast = fast.next
 
-        while head != None:
-            head = head.next
-            tmp = tmp.next
-        tmp.next = tmp.next.next
-        return res.next
+        while fast != None:
+            fast = fast.next
+            slow = slow.next
+        slow.next = slow.next.next
+        return feak_head.next

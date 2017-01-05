@@ -1,4 +1,6 @@
 '''
+22. Generate Parentheses
+
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 For example, given n = 3, a solution set is:
@@ -24,20 +26,20 @@ for the remaining brackets.
 
 
 class Solution(object):
-    def genterte_parentheses(self, n):
+    def generate_parenthesis_wrong(self, n):
         if n == 0:
             return []
         res = []
-        self.helpler(n, n, '', res)
+        self.helpler2(n, n, '', res)
 
         return res
 
-    def helpler(self, l, r, item, res):
+    def helpler(self, l, r, item, res):     # Wrong!
         if l == 0 and r == 0:
             res.append(item)
         if l > 0:
             self.helpler(l - 1, r, item + '(', res)
-        if r > 0:
+        if r > 0:   # Wrong, generate )))(((
             self.helpler(l, r - 1, item + ')', res)
 
     def helpler_2(self, l, r, item, res):
@@ -68,4 +70,5 @@ class Solution(object):
 
 
 s = Solution()
-print s.genterte_parentheses_iteration(4)
+# print s.genterte_parentheses_iteration(4)
+print s.generate_parenthesis_wrong(3)
