@@ -42,20 +42,20 @@ class Solution(object):
         """
         is_nagetive = (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0)
 
-        a = abs(dividend)
-        b = abs(divisor)
+        dividend = abs(dividend)
+        divisor = abs(divisor)
 
-        if a < b:
+        if dividend < divisor:
             return 0
 
         res = 0
-        while a >= b:
-            sum = b
+        while dividend >= divisor:
+            sum = divisor
             count = 1
-            while sum << 1 <= a:
+            while (sum << 1) <= dividend:
                 sum = sum << 1
                 count = count << 1
-            a -= sum
+            dividend -= sum
             res += count
 
         if is_nagetive:
@@ -67,4 +67,4 @@ class Solution(object):
 
 
 s = Solution()
-print s.divide(200, 4)
+print s.divide(200, 3)
