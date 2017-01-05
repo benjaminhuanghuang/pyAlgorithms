@@ -30,7 +30,7 @@ class Solution(object):
         len_h = len(haystack)
         len_n = len(needle)
 
-        for i in xrange(len_h - len_n + 1):
+        for i in xrange(len_h - len_n + 1):  # + 1
             for j in xrange(len_n):
                 str_h = haystack[i + j]
                 str_n = needle[j]

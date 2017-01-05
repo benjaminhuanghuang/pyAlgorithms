@@ -53,6 +53,29 @@ def swap_nodes_in_pairs(head):
 
     return new_head.next
 
+class Solution_my(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return
+        feakhead = ListNode(-1)
+
+        prev = feakhead
+        prev.next = head
+        while head and head.next:
+            next = head.next.next
+            prev.next = head.next
+            prev.next.next = head
+            head.next = next
+
+            prev = prev.next.next
+            head = prev.next
+
+
+        return feakhead.next
 
 head = ListNode(1)
 curr_node = head

@@ -18,6 +18,7 @@ https://github.com/zhouchong90/LeetCode-Python-Solution/
 
 
 class Solution(object):
+    # sample:  1111111234
     def removeDuplicates(self, nums):
         """
         :type nums: List[int]
