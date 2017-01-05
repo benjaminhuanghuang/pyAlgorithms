@@ -68,7 +68,7 @@ LeetCode C# Implementation
 **LinkedList**:
 - 019. Remove Nth Node From End of List         : dummy head and fast-slow point
 - 021. Merge Two Sorted Lists                   : dummy head  
-- 023. Merge k Sorted Lists                     : Min heap and Divide and conquer!
+- 023. Merge k Sorted Lists                     : Min heap or Divide and conquer!
 - 024. Swap Node in Pairs                       : Iteratively or recursively
 - 061. Rotate List
 - 083. Remove Duplicates from Sorted List

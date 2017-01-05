@@ -75,3 +75,46 @@ class Solution(object):
         res.next = l1 or l2
 
         return head.next
+
+
+class Solution_My(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        count= len(lists)
+        mid = count/2
+        list1 = self.merge_lists(0, mid, lists)
+        list2 = self.merge_lists( mid+1, count-1, lists)
+        return self.merge_two_list(list1, list2)
+
+    def merge_lists(self, start, end, lists):
+        length = len(lists)
+        if start > end or end>=length:
+            return None
+        elif start == end:
+            return lists[start]
+
+        mid = start + (end - start)/2
+        list1 = self.merge_lists( start, mid, lists)
+        list2 = self.merge_lists( mid+1, end, lists)
+
+        return self.merge_two_list(list1, list2)
+
+    def merge_two_list(self, l1, l2):
+        feak_header = ListNode(-1)
+        curr = feak_header
+        while l1 and l2:
+            if l1.val < l2.val:
+                curr.next = l1
+                l1 = l1.next
+            else:
+                curr.next = l2
+                l2 = l2.next
+            curr = curr.next
+        if l1:
+            curr.next = l1
+        if l2:
+            curr.next = l2
+        return feak_header.next
