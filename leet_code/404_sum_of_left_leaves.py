@@ -43,3 +43,26 @@ class Solution(object):
         if root.right:
             self.dfs(root.right, result)
 
+
+class Solution_my(object):
+    def sumOfLeftLeaves(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        sum = 0
+        level = []
+        level.append(root)
+        while len(level) > 0:
+            next_level = []
+            for node in level:
+                if node.left and node.left.left is None and node.left.right is None:
+                    sum += node.left.val
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            level = next_level
+        return sum
