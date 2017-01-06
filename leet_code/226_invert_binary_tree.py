@@ -16,9 +16,21 @@ to
 
 https://leetcode.com/problems/invert-binary-tree/
 Google: 90% of our engineers use the software you wrote (Homebrew),
-but you can’t invert a binary tree on a whiteboard so fuck off.
+but you can't invert a binary tree on a whiteboard so fuck off.
 
 '''
+class Solution_my(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if root:
+            self.invertTree(root.left)
+            self.invertTree(root.right)
+
+            root.left, root.right = root.right, root.left
+        return root
 
 # Recursion version
 def invert_binary_tree(root):
