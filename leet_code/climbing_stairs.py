@@ -12,7 +12,7 @@ step[i]  = step[i-1] then climb 1 or step[i-2] then climb 2
 '''
 
 
-# recursion is slow
+# recursion is slow Time Limit Exceeded
 def climb_stairs(n):
     if n == 1 or n <= 0:
         return 1
@@ -20,6 +20,23 @@ def climb_stairs(n):
 
 
 print climb_stairs(35)
+
+
+class Solution_my(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 1 or n <= 0:
+            return 1
+        dp = [0 for i in range(n + 1)]
+        dp[0] = 0
+        dp[1] = 1
+        dp[2] = 2
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+        return dp[n]
 
 
 class Solution(object):
@@ -56,12 +73,13 @@ class Solution(object):
         if n == 2:
             return 2
         fn = fn_1 + fn_2
-        for i in range(3, n+1):
+        for i in range(3, n + 1):
             fn = fn_1 + fn_2
             fn_2 = fn_1
             fn_1 = fn
 
         return fn
+
 
 solu = Solution()
 print solu.climbStairs(10)
