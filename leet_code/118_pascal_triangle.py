@@ -32,6 +32,25 @@ class Solution(object):
         return result
 
 
-s = Solution()
+class Solution_my(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        res = []
+        for row in range(numRows):
+            values = []
+            for col in range(row + 1):
+                if col == 0 or col == row:
+                    values.append(1)
+                else:
+                    values.append(res[row - 1][col - 1] + res[row - 1][col])
+            res.append(values)
+        return res
 
-s.generate(5)
+
+s = Solution_my()
+
+res = s.generate(5)
+print res

@@ -77,13 +77,13 @@ class SolutionMy(object):
         self.dfs(0, "", digits)
         return self.solution
 
-    def dfs(self, i, combination, digits):
+    def dfs(self, pos, combination, digits):
         if len(combination) == len(digits):
             self.solution.append(combination)
             return
-        for c in self.dict[digits[i]]:
+        for c in self.dict[digits[pos]]:
             tmp = combination + c
-            self.dfs(i + 1, tmp, digits)
+            self.dfs(pos + 1, tmp, digits)
 
 
 solution = SolutionMy()
