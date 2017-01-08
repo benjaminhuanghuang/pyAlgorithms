@@ -17,6 +17,28 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 
 class Solution(object):
+    def isPalindrome_my(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if not s:
+            return True
+        left = 0
+        right = len(s) - 1
+        while left <= right:
+            if not s[left].isalpha() and not s[left].isdigit():
+                left += 1
+                continue
+            if not s[right].isalpha() and not s[right].isdigit():
+                right -= 1
+                continue
+            if s[left].lower() != s[right].lower():
+                return False
+            left += 1
+            right -= 1
+        return True
+
     def isPalindrome(self, s):
         """
         :type s: str
