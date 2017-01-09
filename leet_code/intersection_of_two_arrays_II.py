@@ -18,6 +18,23 @@ Follow up:
 
 import collections
 
+
+class Solution_my(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        ret = []
+        count_dict = collections.Counter(nums1)
+        for n in nums2:
+            if count_dict[n] > 0:
+                count_dict[n] -= 1
+                ret.append(n)
+        return ret
+
+
 # Solution1 : sort and two-points
 def arrays_interseciton_II(nums1, nums2):
     nums1, nums2 = sorted(nums1), sorted(nums2)
@@ -50,8 +67,8 @@ def arrays_interseciton_II_2(nums1, nums2):
             c[x] -= 1
     return ans
 
-b1 = [1, 2, 2,  3, 4, 5, 9, 11, 15]
+
+b1 = [1, 2, 2, 3, 4, 5, 9, 11, 15]
 b2 = [4, 5, 2, 2, 6, 7, 8]
 
 print arrays_interseciton_II_2(b1, b2)
-
