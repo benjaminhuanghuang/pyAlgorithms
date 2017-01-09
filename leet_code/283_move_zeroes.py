@@ -18,7 +18,7 @@ def move_zero(nums):
             nums[current] = nums[index]
             current += 1
 
-    for index in xrange(current, len(nums)):
+    for index in xrange(current, len(nums)):    # wrong: current +1
         nums[index] = 0
 
 

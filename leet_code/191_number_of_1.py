@@ -10,6 +10,21 @@ so the function should return 3.
 '''
 
 
+class Solution_my(object):
+    def hammingWeight(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        ret = 0
+        while n > 0:
+            b = n & 1
+            if b:
+                ret += 1
+            n = n >> 1
+        return ret
+
+
 def hamming_weight(n):
     num = 0
     for i in range(32):
