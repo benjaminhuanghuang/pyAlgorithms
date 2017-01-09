@@ -30,3 +30,16 @@ class Solution(object):
             if char_count_dict[char] < 0:
                 return False
         return True
+
+    def canConstruct_my(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        count_dict = collections.Counter(magazine)
+        for c in ransomNote:
+            if count_dict[c] < 1:
+                return False
+            count_dict[c] -= 1
+        return True

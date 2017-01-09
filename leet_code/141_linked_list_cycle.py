@@ -11,6 +11,26 @@ Can you solve it without using extra space?
 from data_structure.list_node import ListNode
 
 
+class Solution_my(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if not head:
+            return False
+        fast = head
+        slow = head
+
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                break
+        # return fast != None   # Wrong!
+        return fast != None and (fast.next != None)
+
+
 # Solution 1
 # O(n) space
 def hasCycle_On(head):
