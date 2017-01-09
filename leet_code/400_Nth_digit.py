@@ -68,12 +68,30 @@ class Solution(object):
             digits += 1
         print digits
 
-        t = n - arr[digits - 1] - 1   # location in the section
-        num = (t / digits) + (10 ** (digits - 1))   # the number has n-th digit
-        p = digits - (t % digits) - 1   # the digit of the number
+        t = n - arr[digits - 1] - 1  # location in the section
+        num = (t / digits) + (10 ** (digits - 1))  # the number has n-th digit
+        p = digits - (t % digits) - 1  # the digit of the number
         for i in xrange(p):
             num /= 10
         return num % 10
+
+    #  1 - 9   : 9
+    #  10 - 99 : (99 - 10 + 1) *2 = 90 *2
+    #  100 - 999 :  (999 - 100 + 1) * 3 = 900 * 3
+    #                                   =  count * len
+    def findNthDigit(self, n):
+        start = 1  # the first number in the range
+        len = 1
+        count = 9  # 1-9
+        while n > len * count:
+            n = n - len * count
+            len += 1
+            count = count * 10
+            start = start * 10
+
+        number = start + (n - 1) / len
+        s = str(number)
+        return int(s[(n - 1) % len])
 
 
 n = 12

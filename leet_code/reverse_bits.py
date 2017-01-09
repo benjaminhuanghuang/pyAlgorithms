@@ -37,6 +37,13 @@ class Solution(object):
         """
         res = 0
         for i in xrange(32):
-            res <<= 1
-            res |= (n >> i) & 1
+            res = (res << 1) + (n >> i & 1)
+        return res
+
+    def reverseBits_wrong(self, n):
+        res = 0
+        while n > 0:  # only get one bit
+            b = n & 1
+            res = (res << 1) + b
+            n = n >> 1
         return res

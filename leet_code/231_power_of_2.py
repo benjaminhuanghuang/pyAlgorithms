@@ -14,7 +14,7 @@ def is_power_of_2(n):
         count_of_1 += (n & 1)
         n >>= 1
 
-    return count_of_1 == 1;
+    return count_of_1 == 1
 
 
 # The power of 2 only have one "1" ant most left bit
