@@ -38,7 +38,7 @@ class Solution(object):
         return ans
 
     def parseTime(self, num):
-        hour, minute = num >> 6, num & 0x3F
+        hour, minute = num >> 6, num & 0x3F  # 111111
         if hour > 11 or minute > 59:
             return []
         return [str(hour) + ':' + str(minute).zfill(2)]

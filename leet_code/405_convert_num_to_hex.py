@@ -28,7 +28,21 @@ Output:
 
 
 class Solution(object):
-    def toHex(self, num):
+    def toHex_good(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        ans = []
+        hexs = '0123456789abcdef'
+        if num < 0:
+            num += 0x100000000  # Two's complement
+        while num:
+            ans.append(hexs[num % 16])
+            num /= 16
+        return ''.join(ans[::-1]) if ans else '0'
+
+    def toHex_my(self, num):
         """
         :type num: int
         :rtype: str
