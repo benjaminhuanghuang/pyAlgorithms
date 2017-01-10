@@ -62,12 +62,10 @@ class Solution(object):
 
     def convert_positive_to_hex(self, num):
         result = ""
-        while True:
+        while num:
             digit = num % 16
             result = self.convert_digit_to_hex(digit) + result
             num = num / 16
-            if num == 0:
-                break
         return result
 
     def convert_digit_to_hex(self, digit):
