@@ -4,4 +4,5 @@ LeetCode
 - 012. Integer to Roman
 - 023. Merge k Sorted Lists
 - 029. Divide Two Integers
+- 032. Longest Valid Parentheses
 - 448. Find All Numbers Disappeared in an Array

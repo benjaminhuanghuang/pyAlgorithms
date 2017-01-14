@@ -24,23 +24,19 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if head is None or not head.next or not head.next.next:
+        if not head or not head.next or not head.next.next:
             return head
 
-        odd_head = head
+        odd_curr = head
         even_head = head.next
-        temp = head.next
+        even_curr = head.next
+        while even_curr and even_curr.next:
+            odd_curr.next = even_curr.next
+            even_curr.next = even_curr.next.next
 
-        while even_head and even_head.next:
-            odd_head.next = even_head.next
-            even_head.next = even_head.next.next
-
-            odd_head = odd_head.next
-            even_head = even_head.next
-
-        odd_head.next = temp
-
-        return head
+            odd_curr = odd_curr.next
+            even_curr = even_curr.next
+        odd_curr.next = even_head
 
 
 s = Solution()
