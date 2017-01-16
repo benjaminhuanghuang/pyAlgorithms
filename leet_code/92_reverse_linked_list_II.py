@@ -43,11 +43,46 @@ class Solution(object):
 
         return dummy.next
 
+    # revert node M to node N, node previous M and node post N need be keep
+    def reverseBetween_9(self, head, m, n):
+        """
+        :type head: ListNode
+        :type m: int
+        :type n: int
+        :rtype: ListNode
+        """
+        if head == None or head.next == None:
+            return head
 
-head = generate_list([1, 2, 3, 4, 5])
+        dummy = ListNode(0)
+        dummy.next = head
+        head = dummy
+        for i in range(1, m):   # get previous N
+            head = head.next
+
+        # revert node N to node M, node previous N and node post M need be keep
+        pre_m_node = head
+        m_node = head.next
+        n_node = m_node
+        post_n_node = m_node.next
+
+
+        for i in range(n-m):
+            tmp = post_n_node.next
+            post_n_node.next = n_node
+            n_node = post_n_node
+            post_n_node = tmp
+
+        m_node.next = post_n_node
+        pre_m_node.next = n_node
+
+        return dummy.next
+
+
+head = generate_list([3, 5])
 
 s = Solution()
-res = s.reverseBetween(head, 2, 4)
+res = s.reverseBetween_9(head, 1, 2)
 while res:
     print res.val
     res = res.next

@@ -76,6 +76,7 @@ LeetCode C# Implementation
 - 082. Remove Duplicates from Sorted List II
 - 086. Partition List                           : Easy
 - 092. Reverse Linked List II
+- 138. Copy List with Random Pointer
 - 141. Linked List Cycle
 - 143. Reorder List                             : Compare with #206
 - 147. Insertion Sort List
