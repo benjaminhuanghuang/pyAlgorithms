@@ -14,7 +14,22 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 '''
 
 class Solution(object):
+    # http://bookshadow.com/weblog/2015/04/05/leetcode-longest-substring-without-repeating-characters/
     def lengthOfLongestSubstring(self, s):
+
+        max_len = 0
+        start, end = 0, 0   # start and end of substring
+        countDict = {}    # count of charts in substring
+        for c in s:
+            end += 1
+            countDict[c] = countDict.get(c, 0) + 1
+            while countDict[c] > 1:     # my mistake:  use if here , can not pass "pwwk"
+                countDict[s[start]] -= 1
+                start += 1
+            max_len = max(max_len, end - start)    # my mistake : use end - start + 1
+        return max_len
+
+    def lengthOfLongestSubstring_2(self, s):
         """
         :type s: str
         :rtype: int
@@ -32,7 +47,7 @@ class Solution(object):
             dict[ord(s[i])] = i
         return maxlen
 
-    def lengthOfLongestSubstring_2(self, s):
+    def lengthOfLongestSubstring_3(self, s):
         start = 0
         maxlen = 0
         dict = {}
@@ -48,20 +63,7 @@ class Solution(object):
             dict[s[i]] = i
         return maxlen
 
-    # http://bookshadow.com/weblog/2015/04/05/leetcode-longest-substring-without-repeating-characters/
-    def lengthOfLongestSubstring_3(self, s):
 
-        max_len = 0
-        start, end = 0, 0   # start and end of substring
-        countDict = {}    # count of charts in substring
-        for c in s:
-            end += 1
-            countDict[c] = countDict.get(c, 0) + 1
-            while countDict[c] > 1:     # my mistake:  use if here , can not pass "pwwk"
-                countDict[s[start]] -= 1
-                start += 1
-            max_len = max(max_len, end - start)    # my mistake : use end - start + 1
-        return max_len
 
 s = Solution()
-s.lengthOfLongestSubstring_3("pwwkew")
+s.lengthOfLongestSubstring("pwwkew")

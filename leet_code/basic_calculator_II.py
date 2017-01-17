@@ -44,3 +44,9 @@ class Solution(object):
                 num = 0
                 operator = s[i]
         return left + right
+
+s = Solution()
+
+res = s.calculate("5*3")
+
+print res

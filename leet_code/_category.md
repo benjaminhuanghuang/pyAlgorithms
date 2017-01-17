@@ -1,11 +1,13 @@
 LeetCode C# Implementation
 =====================================
 
-**String**:
+**String and array**:
 - 003. Longest Substring Without Repeating Characters # double point + dict
 - 005. Longest Palindromic Substring
 - 010. Regular Expression Matching
 - 014. Longest Common Prefix
+- 057. Insert Interval              # Insert Position
+- 283. Move Zeroes                   # double point
 
 **Python int overflow**:
 - 007. Reverse Integer
@@ -16,7 +18,7 @@ LeetCode C# Implementation
 - 004. Median of Two Sorted Arrays              # Binary search, find Kth number!!
 - 033. Search in Rotated Sorted Array
 - 081. Search in Rotated Sorted Array II    :   Duplicates are allowed
-- 034. Search for a Range
+- 034. Search for a Range                   : BS, while
 - 035. Search Insert Position
 - 069. Sqrt(x)
 - 074. Search a 2D Matrix
@@ -35,7 +37,7 @@ LeetCode C# Implementation
 - 136. Single Number
 - 137. Single Number II
 - 190. Reverse Bits
-- 201. Bitwise AND of Numbers Range             : 
+- 201. Bitwise AND of Numbers Range             : AND
 - 393. UTF-8 Validation
 - 421. Maximum XOR of Two Numbers in an Array  [Goolge]
 
@@ -80,6 +82,7 @@ LeetCode C# Implementation
 - 141. Linked List Cycle
 - 143. Reorder List                             : Compare with #206
 - 147. Insertion Sort List
+- 148. Sort List                                : Dived, Sort, Merge
 - 160. Intersection of Two Linked Lists
 - 206. Reverse Linked List                      : Iteratively or recursively
 - 237. Delete Node in a Linked List             : 
@@ -94,7 +97,7 @@ LeetCode C# Implementation
 - 112. Path Sum
 - 173. Binary Search Tree Iterator
 - 144. Binary Tree Preorder Traversal           : Iteratively or recursively or Morris
-- 145. Binary Tree Postorder Traversal
+- 145. Binary Tree Postorder Traversal          :
 - 156. Binary Tree Upside Down                  : Iteratively or recursively
 - 222. Count Complete Tree Nodes
 - 226. Invert Binary Tree

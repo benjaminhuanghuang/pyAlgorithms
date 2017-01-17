@@ -40,20 +40,21 @@ class Solution(object):
         """
         res = ""
         for i in xrange(len(s)):
-            sub_str = self.get_pali(s, i, i)
+            sub_str = self.get_pali(s, i, i)       # for aba
             if len(res) < len(sub_str):
                 res = sub_str
-            sub_str = self.get_pali(s, i, i + 1)
+            sub_str = self.get_pali(s, i, i + 1)   # for abba
             if len(res) < len(sub_str):
                 res = sub_str
         return res
 
+    # a, aba, abba
     def get_pali(self, s, left, right):
         while left >= 0 and right < len(s) and s[left] == s[right]:
             left -= 1
             right += 1
-        return s[left + 1: right]
+        return s[left + 1: right]   # note the index
 
 
 s = Solution()
-print s.longestPalindrome_2("abb")
+print s.longestPalindrome_2("baab")

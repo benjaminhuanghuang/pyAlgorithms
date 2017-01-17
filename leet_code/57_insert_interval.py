@@ -37,7 +37,7 @@ class Solution(object):
                 insertPos += 1
             elif interval.start > newInterval.end:
                 results.append(interval)
-            else: # interval.end >= newInterval.start and interval.start <= newInterval.end
+            else:  # interval.end >= newInterval.start and interval.start <= newInterval.end
                 newInterval.start = min(interval.start, newInterval.start)
                 newInterval.end = max(interval.end, newInterval.end)
         results.insert(insertPos, newInterval)
