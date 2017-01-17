@@ -47,17 +47,19 @@ class Solution(object):
         """
         #        0, 10000000, 11100000, 11110000, 11111000
         masks = [0x0, 0x80, 0xE0, 0xF0, 0xF8]
+        #        0 ,  0  ,  11000000, 11100000, 11110000
         bits = [0x0, 0x0, 0xC0, 0xE0, 0xF0]
         while data:
-            for x in (4, 3, 2, 1, 0):
-                if data[0] & masks[x] == bits[x]:
+            for i in (4, 3, 2, 1, 0):
+                if data[0] & masks[i] == bits[i]:
                     break
-            if x == 0 or len(data) < x:
+            length = i
+            if length == 0 or len(data) < length:
                 return False
-            for y in range(1, x):
+            for y in range(1, length):
                 if data[y] & 0xC0 != 0x80:
                     return False
-            data = data[x:]
+            data = data[length:]
         return True
 
     def validUtf8_2(self, data):
