@@ -10,6 +10,26 @@ The right subtree of a node contains only nodes with keys greater than the node'
 Both the left and right subtrees must also be binary search trees.
 
 '''
+MAX = (1 << 31)
+MIN = - (1 << 31) - 1
+
+
+class Solution_my(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        return self.check(root, MIN, MAX)
+
+    def check(self, root, min, max):
+        if not root:
+            return True
+
+        if root.val <= min or root.val >= max:
+            return False
+
+        return self.check(root.left, min, root.val) and self.check(root.right, root.val, max)
 
 
 class Solution(object):
