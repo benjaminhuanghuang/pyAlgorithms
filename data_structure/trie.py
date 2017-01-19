@@ -39,7 +39,7 @@ class Trie_9:
 
 
 class TireNode:
-    def __init__(self):
+    def __init__(self, char):
         self.children = []
-        self.flag = False
-        self.hasWord = False
+        self.char = char
+
