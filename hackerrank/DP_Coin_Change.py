@@ -3,6 +3,13 @@
 DP: Coin Change
 
 
+
+n,m = raw_input().strip().split(' ')
+n,m = [int(n),int(m)]
+coins = map(int,raw_input().strip().split(' '))
+print make_change(coins, n)
+
+
 '''
 
 
