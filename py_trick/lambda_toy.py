@@ -28,8 +28,12 @@ s = "source"
 for i, c in filter(lambda x: x[1] in t, enumerate(s)):
     pass
 
-nums = [2, 6, 7, 8, 9]
+nums = [2, 2, 6, 6, 7, 8, 9]
 count_dict = collections.Counter(nums)
 # sort dict by VALUE
 # sorted(count_dict, key=count_dict.__getitem__, reverse=True)   # method 1
 sorted(count_dict, key=lambda x: count_dict[x], reverse=True)
+
+# Sorting a dictionary by value (DES) then key (ASE)
+sorted_count = [k for k, v in sorted(count_dict.iteritems(), key=lambda (k, v): (-v, k))]
+print sorted_count[0]  # 2 not 6
