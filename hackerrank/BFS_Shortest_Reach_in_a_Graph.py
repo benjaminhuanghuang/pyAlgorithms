@@ -23,8 +23,10 @@ class Graph(object):
         unvisited.remove(start_node)
         q.append(start_node)
 
-        while not len(q) > 0:
+        # BFS
+        while len(q) > 0:
             node = q[0]
+            q.pop(0)
             children = self.edges[node]
             height = distances[node]
             for child in children:
