@@ -7,6 +7,7 @@ LeetCode C# Implementation
 - 010. Regular Expression Matching
 - 014. Longest Common Prefix
 - 057. Insert Interval              # Insert Position
+- 214. Shortest Palindrome
 - 283. Move Zeroes                   # double point
 
 **Python int overflow**:
@@ -26,7 +27,7 @@ LeetCode C# Implementation
 - 154. Find Minimum in Rotated Sorted Array II  : Duplicates are allowed.
 - 162. Find Peak Element
 - 275. H-Index II
-- 367. Valid Perfect Square
+- 367. Valid Perfect Square         *****
 - 378. Kth Smallest Element in a Sorted Matrix 
 
 **Combinations**
@@ -38,6 +39,7 @@ LeetCode C# Implementation
 - 137. Single Number II
 - 190. Reverse Bits
 - 201. Bitwise AND of Numbers Range             : AND
+- 338. Counting Bits                  ****
 - 393. UTF-8 Validation
 - 421. Maximum XOR of Two Numbers in an Array  [Goolge]
 
@@ -85,6 +87,7 @@ LeetCode C# Implementation
 - 148. Sort List                                : Dived, Sort, Merge
 - 160. Intersection of Two Linked Lists
 - 206. Reverse Linked List                      : Iteratively or recursively
+- 234. Palindrome Linked List
 - 237. Delete Node in a Linked List             : 
 - 328. Odd Even Linked List
 
@@ -108,6 +111,7 @@ LeetCode C# Implementation
 - 094. Binary Tree Inorder Traversal            : Iteratively or recursively or Morris
 - 095. Unique Binary Search Trees II
 - 096. Unique Binary Search Trees
+- 108. Sorted Array to BST
 - 173. Binary Search Tree Iterator
 - 230. Kth Smallest Element in a BST
 - 235. Lowest Common Ancestor of a Binary Search Tree    : ***
@@ -135,8 +139,14 @@ LeetCode C# Implementation
 - 120. Triangle
 - 139. Word Break
 - 152. Maximum Product Subarray
+- 221. Maximal Square
 - 300. Longest Increasing Subsequence   [LIS]
 - 416. Partition Equal Subset Sum
+
+**Matrix**:
+- 054. Spiral Matrix
+- 059. Spiral Matrix II
+- 073. Set Matrix Zeroes
 
 
 **Cache**:

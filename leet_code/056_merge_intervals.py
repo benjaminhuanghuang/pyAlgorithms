@@ -21,6 +21,7 @@ class Solution(object):
         :type intervals: List[Interval]
         :rtype: List[Interval]
         """
+        # sort the intervals by start
         intervals = sorted(intervals, key=lambda x: x.start)
         result = []
         for interval in intervals:

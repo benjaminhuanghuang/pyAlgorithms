@@ -9,6 +9,7 @@ Could you do it in O(n) time and O(1) space?
 
 
 class Solution(object):
+    # use extra space
     # time O(n), space O(n)
     def isPalindrome(self, head):
         """
@@ -33,6 +34,7 @@ class Solution(object):
             end -= 1
         return True
 
+    # reverse list
     def isPalindrome_2(self, head):
         if head is None or head.next is None:
             return True
