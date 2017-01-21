@@ -1,23 +1,12 @@
-def is_anagrams(s1,s2):
-
-    if len(s1) != len(s2):
-        return False
-
-    count_dict ={}
-    for c in s1:
-        count_dict[c] = count_dict.get(c, 0)+1
-
-    for c in s2:
-        count = count_dict.get(c, 0)
-        if count >0:
-            count_dict[c] = count -1
-        else:
-            return False
-    return True
+def get_lex_greater(s):
+    for i in range(len(s) - 2, -1, -1):
+        if s[i] < s[i + 1]:
+            break
+        i -= 1
+    if i == -1:
+        return s
+    res = s[:i] + "".join(sorted(s[i:], reverse=True))
+    return res
 
 
-
-s1='abbb'
-s2='bbba'
-
-print is_anagrams(s1,s2)
+print get_lex_greater("dkhc")
