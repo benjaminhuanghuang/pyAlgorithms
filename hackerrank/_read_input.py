@@ -7,3 +7,7 @@ for a0 in xrange(q):
 
 # read 5 2
 n, q = map(int, raw_input().strip().split(" "))
+
+
+n = int(raw_input())
+nums = map(int, raw_input().strip().split(' '))
