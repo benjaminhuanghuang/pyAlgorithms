@@ -16,7 +16,7 @@ class Trie(object):
     def add(self, word):
         node = self.root
         for char in word:
-            node = node.children[char]   # default node
+            node = node.children[char]  # default node
             node.num_usage += 1
 
     def find(self, partial):
@@ -110,7 +110,16 @@ out put
 0
 '''
 
-contacts = Tire()
+contacts = Trie()
+
+n = int(raw_input())
+for i in range(n):
+    opt, name = raw_input().strip().split(' ')
+    if opt == "add":
+        contacts.add(name)
+    elif opt == "find":
+        print contacts.find(name)
+
 # contacts.add("hack")
 # contacts.add("hackerrank")
 # contacts.add("abc")
