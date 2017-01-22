@@ -1,5 +1,5 @@
 def quick_sort(ar):
-    if not len or len(ar) < 2:
+    if len(ar) < 2:
         return ar
     pivot = ar[0]
     left = []
@@ -14,14 +14,7 @@ def quick_sort(ar):
     left = quick_sort(left)
     right = quick_sort(right)
 
-    if left:
-        s = left + [pivot]
-        if right:
-            s = s + right
-    else:
-        s = [pivot]
-        if right:
-            s = s + right
+    s = left + [pivot] + right
 
     if len(ar) > 1:
         print " ".join(map(str, s))
