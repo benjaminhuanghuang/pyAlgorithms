@@ -1,27 +1,47 @@
-count = 0
+def quick_sort(ar):
+    if not len or len(ar) < 2:
+        return ar
+    pivot = ar[0]
+    left = []
+    right = []
+
+    for i in range(1, len(ar)):
+        if ar[i] < pivot:
+            left.append(ar[i])
+        else:
+            right.append(ar[i])
+
+    left = quick_sort(left)
+    right = quick_sort(right)
+
+    if left:
+        s = left + [pivot]
+        if right:
+            s = s + right
+    else:
+        s = [pivot]
+        if right:
+            s = s + right
+
+    if len(ar) > 1:
+        print " ".join(map(str, s))
+    return s
 
 
-def quick_sort_helper(nums, l, r):
-    if l >= r:
-        return nums
-    temp = nums[l]
-    i = l + 1
-    j = r
-    while True:
-        while (nums[j] > temp):
-            j -= 1
-        while (nums[i] < temp):
-            i += 1
-        if i >= j:
-            break
-        nums[i], nums[j] = nums[j], nums[i]
-        i += 1
-        j -= 1
-    if j != l:
-        nums[j], nums[l] = nums[l], nums[j]
-    quick_sort_helper(nums, j + 1, r)
-    quick_sort_helper(nums, l, j - 1)
+def partition(ar):
+    pivot = ar[0]
+    left = []
+    right = []
+
+    for i in range(1, len(ar)):
+        if ar[i] < pivot:
+            left.append(ar[i])
+        else:
+            right.append(ar[i])
+
+    ar[:] = left + [pivot] + right
 
 
-def quick_sort(nums):
-    quick_sort_helper(nums, 0, len(nums) - 1)
+nums = [5, 8, 1, 3, 7, 9, 2]
+s = quick_sort(nums)
+print s
