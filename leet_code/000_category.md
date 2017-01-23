@@ -7,8 +7,10 @@ LeetCode C# Implementation
 - 010. Regular Expression Matching
 - 014. Longest Common Prefix
 - 057. Insert Interval              # Insert Position
+- 205. Isomorphic Strings           # string pattern 290
 - 214. Shortest Palindrome
 - 283. Move Zeroes                   # double point
+- 290. Word Pattern           # string pattern 205
 
 **Python int overflow**:
 - 007. Reverse Integer
