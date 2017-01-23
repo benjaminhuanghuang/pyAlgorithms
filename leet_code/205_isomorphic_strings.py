@@ -53,7 +53,7 @@ class Solution(object):
         sdict = {}
         tdict = {}
 
-        for i, j in zip(s, t):
+        for i, j in zip(s, t):   # good !
             if i not in sdict:
                 sdict[i] = j
             if j not in tdict:

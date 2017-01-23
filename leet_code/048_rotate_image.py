@@ -25,11 +25,11 @@ class Solution(object):
             return
 
         n = len(matrix) - 1
-        for i in xrange(n / 2 + 1):
+        for layer in xrange(n / 2 + 1):
             # xrange(i, n - i) for there are n is odd
-            for j in xrange(i, n - i):
-                tmp = matrix[i][j]
-                matrix[i][j] = matrix[n-j][i]
-                matrix[n-j][i] = matrix[n-i][n-j]
-                matrix[n-i][n-j] = matrix[j][n-i]
-                matrix[j][n-i] = tmp
+            for offset in xrange(layer, n - layer):
+                tmp = matrix[layer][offset]
+                matrix[layer][offset] = matrix[n-offset][layer]
+                matrix[n-offset][layer] = matrix[n-layer][n-offset]
+                matrix[n-layer][n-offset] = matrix[offset][n-layer]
+                matrix[offset][n-layer] = tmp

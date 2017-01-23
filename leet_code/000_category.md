@@ -140,11 +140,13 @@ LeetCode C# Implementation
 - 120. Triangle
 - 139. Word Break
 - 152. Maximum Product Subarray
+- 204. Count Primes
 - 221. Maximal Square
 - 300. Longest Increasing Subsequence   [LIS]
 - 416. Partition Equal Subset Sum
 
 **Matrix**:
+- 048. Rotate Image
 - 054. Spiral Matrix
 - 059. Spiral Matrix II
 - 073. Set Matrix Zeroes

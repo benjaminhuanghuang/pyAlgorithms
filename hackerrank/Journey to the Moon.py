@@ -1,12 +1,16 @@
 '''
-Answer =(axb) + (axc) + (bxc)
-Answer = (axb) + (a+b)xc
+https://www.hackerrank.com/challenges/journey-to-the-moon?h_r=internal-search
+Answer = (axb) + (axc) + (bxc)
+       = (axb) + (a+b)xc
 
 Answer = (axb) + (axc) + (axd) + (bxc) + (bxd) + (cxd) =
        = (axb) x (a+b)xc + (a+b+c)xd
+
+answoer = old answer + the sum of old values x new value.
 '''
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
+n = 10
 input = [
     [0, 2],
     [1, 8],
@@ -18,7 +22,10 @@ input = [
 
 ]
 countries = []
-result = 0
+
+for i in range(n):
+    countries.append(set([i]))
+
 for i in xrange(7):
     a, b = input[i]
     # Store a and b in an appropriate data structure
@@ -35,9 +42,15 @@ for i in xrange(7):
             i += 1
     countries.append(new_contry)
 
-for c in countries:
+i = 1
+sum = len(countries[0])
+result = 0
+while i < len(countries):
     if result == 0:
-        result = len(c)
+        result = len(countries[i]) * len(countries[i - 1])
+        sum += len(countries[i])
     else:
-        result *= len(c)
+        result = result + sum * len(countries[i])
+        sum += len(countries[i])
+    i += 1
 print result

@@ -53,10 +53,10 @@ class Solution(object):
     def countPrimes(self, n):
         if n <= 2:
             return 0
-        A = [True] * n  # A[0] to A[n -1]
+        isPrimes = [True] * n  # A[0] to A[n -1]
 
         for i in xrange(2, int(n ** 0.5) + 1):
-            if A[i]:
-                for j in xrange(i ** 2, n, i):  # remove all multiple of i
-                    A[j] = False
-        return sum(A) - 2  # skip A[0] and A[1]
+            if isPrimes[i]:
+                for j in xrange(i*i, n, i):  # remove all multiple of i, i*(i+i) to n
+                    isPrimes[j] = False
+        return sum(isPrimes) - 2  # skip A[0] and A[1]

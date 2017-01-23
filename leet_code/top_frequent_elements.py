@@ -18,6 +18,27 @@ import heapq
 
 
 class Solution(object):
+    def topKFrequent_my(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        # my_dict = dict()
+        # for i in nums:
+        #     if i in my_dict:
+        #         my_dict[i] +=1
+        #     else:
+        #         my_dict[i] = 1
+        count_dict = collections.Counter(nums)
+        count_dict = sorted(count_dict, key=lambda x: count_dict[x], reverse=True)
+        res = []
+        for i in xrange(0, k):
+            # pick up most two largest number in my_dict
+            res.append(count_dict[i])
+
+        return res
+
     def topKFrequent(self, nums, k):
         """
         :type nums: List[int]
