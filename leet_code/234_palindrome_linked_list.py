@@ -35,11 +35,12 @@ class Solution(object):
         return True
 
     # reverse list
+    # time O(n), space O(1)
     def isPalindrome_2(self, head):
         if head is None or head.next is None:
             return True
 
-        fast = head
+        fast = head.next
         slow = head
 
         while fast.next and fast.next.next:
@@ -65,8 +66,8 @@ class Solution(object):
 
         prev = None
         while head:
-            next = head.next;
-            head.next = prev;
+            next = head.next
+            head.next = prev
             prev = head
             head = next
         return prev
