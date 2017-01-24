@@ -32,6 +32,7 @@ LeetCode C# Implementation
 - 275. H-Index II
 - 367. Valid Perfect Square         *****
 - 378. Kth Smallest Element in a Sorted Matrix 
+- 475. Heaters                      ****
 
 **Combinations**
 - 017. Letter Combinations of a Phone Number    # dfs
