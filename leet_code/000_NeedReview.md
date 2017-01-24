@@ -5,5 +5,6 @@ LeetCode
 - 023. Merge k Sorted Lists
 - 029. Divide Two Integers
 - 032. Longest Valid Parentheses
+- 038. Count and Say
 - 215. Kth Largest Element in an Array
 - 448. Find All Numbers Disappeared in an Array

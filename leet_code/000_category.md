@@ -11,6 +11,7 @@ LeetCode C# Implementation
 - 214. Shortest Palindrome
 - 283. Move Zeroes                   # double point
 - 290. Word Pattern           # string pattern 205
+- 438. Find All Anagrams in a String
 
 **Python int overflow**:
 - 007. Reverse Integer
@@ -87,10 +88,11 @@ LeetCode C# Implementation
 - 143. Reorder List                             : Compare with #206
 - 147. Insertion Sort List
 - 148. Sort List                                : Dived, Sort, Merge
-- 160. Intersection of Two Linked Lists
+- 160. Intersection of Two Linked Lists         : #237
+- 203. Remove Linked List Elements
 - 206. Reverse Linked List                      : Iteratively or recursively
 - 234. Palindrome Linked List
-- 237. Delete Node in a Linked List             : 
+- 237. Delete Node in a Linked List             : #203
 - 328. Odd Even Linked List
 
 **Tree Operation**:
