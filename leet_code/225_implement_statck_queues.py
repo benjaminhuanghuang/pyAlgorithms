@@ -19,29 +19,35 @@ class Stack(object):
         """
         initialize your data structure here.
         """
-        self.stack = []
+        self.queue = []
 
     def push(self, x):
         """
         :type x: int
         :rtype: nothing
         """
-        self.stack.append(x)
+        self.queue.append(x)
 
     def pop(self):
         """
         :rtype: nothing
         """
-        self.stack.pop()
+        for x in range(len(self.queue) - 1):
+            self.queue.append(self.queue.pop(0))
+        return self.queue.pop(0)
 
     def top(self):
         """
         :rtype: int
         """
-        return self.stack[-1]
+        top = None
+        for x in range(len(self.queue)):
+            top = self.queue.pop(0)
+            self.queue.append(top)
+        return top
 
     def empty(self):
         """
         :rtype: bool
         """
-        return len(self.stack) <= 0
+        return len(self.queue) <= 0

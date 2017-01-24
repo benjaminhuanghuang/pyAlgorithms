@@ -27,8 +27,8 @@ class Solution(object):
         area1 = (C - A) * (D - B);
         area2 = (G - E) * (H - F);
 
-        height = max(0, min(C, G) - max(A, E))
-        width = max(0, min(D, H) - max(B, F))
+        width = max(0, min(C, G) - max(A, E))
+        height = max(0, min(D, H) - max(B, F))
 
         overlapRegion = width * height
-        return area1 + area2 - overlapRegion;
+        return area1 + area2 - overlapRegion

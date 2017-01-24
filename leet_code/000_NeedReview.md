@@ -7,4 +7,5 @@ LeetCode
 - 032. Longest Valid Parentheses
 - 038. Count and Say
 - 215. Kth Largest Element in an Array
+- 303. Range Sum Query - Immutable   # cache
 - 448. Find All Numbers Disappeared in an Array

@@ -47,4 +47,4 @@ class NumArray(object):
     def sumRange_naive(self, i, j):
         if i == 0:
             return self.dic[j]
-        return self.dic[j] - self.dic[i-1]
+        return self.dic[j] - self.dic[i-1]   # dic[i-1] !

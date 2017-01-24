@@ -41,9 +41,10 @@ class Solution(object):
 
         while headA and headB:
             if headA == headB:
-                return headA
+                return headA    # return here
             headA = headA.next
             headB = headB.next
+
 
     def get_size(self, head):
         if not head:
