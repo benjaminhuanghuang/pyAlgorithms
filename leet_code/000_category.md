@@ -43,7 +43,7 @@ LeetCode C# Implementation
 - 137. Single Number II
 - 190. Reverse Bits
 - 201. Bitwise AND of Numbers Range             : AND
-- 338. Counting Bits                  ****
+- 338. Counting Bits                  HARD****
 - 393. UTF-8 Validation
 - 421. Maximum XOR of Two Numbers in an Array  [Goolge]
 
@@ -157,7 +157,7 @@ LeetCode C# Implementation
 - 054. Spiral Matrix
 - 059. Spiral Matrix II
 - 073. Set Matrix Zeroes
-
+- 419. Battleships in a Board : MS
 
 **Cache**:
 - 304. Range Sum Query 2D - Immutable
