@@ -24,7 +24,7 @@ LeetCode C# Implementation
 - 081. Search in Rotated Sorted Array II    :   Duplicates are allowed
 - 034. Search for a Range                   : BS, while
 - 035. Search Insert Position               #****
-- 069. Sqrt(x)
+- 069. Sqrt(x)                              #*
 - 074. Search a 2D Matrix
 - 153. Find Minimum in Rotated Sorted Array
 - 154. Find Minimum in Rotated Sorted Array II  : Duplicates are allowed.
@@ -117,7 +117,7 @@ LeetCode C# Implementation
 **BST**:
 - 094. Binary Tree Inorder Traversal            : Iteratively or recursively or Morris
 - 095. Unique Binary Search Trees II
-- 096. Unique Binary Search Trees
+- 096. Unique Binary Search Trees           ***
 - 099. Recover Binary Search Tree            ****
 - 108. Sorted Array to BST
 - 173. Binary Search Tree Iterator
