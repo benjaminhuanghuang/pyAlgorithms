@@ -82,4 +82,4 @@ class Solution(object):
 
 s = Solution()
 
-print s.topKFrequent([1, 1, 1, 2, 2, 3], 2)
+print s.topKFrequent_my([1, 1, 1, 2, 2, 3], 2)

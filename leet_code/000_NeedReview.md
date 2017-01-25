@@ -8,6 +8,7 @@ LeetCode
 - 038. Count and Say
 - 215. Kth Largest Element in an Array
 - 303. Range Sum Query - Immutable   # cache
-- 338. Counting Bits 
+- 338. Counting Bits  ***
+- 406. Queue Reconstruction by Height
 - 448. Find All Numbers Disappeared in an Array
 - 463. Island Perimeter      # Interesting
