@@ -58,7 +58,8 @@ class Solution(object):
             self.FindTwoNodes(root.left)
             if self.prev and self.prev.val > root.val:
                 self.n2 = root
-                if self.n1 == None: self.n1 = self.prev
+                if self.n1 == None:
+                    self.n1 = self.prev
             self.prev = root
             self.FindTwoNodes(root.right)
 
