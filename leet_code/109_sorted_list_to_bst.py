@@ -9,26 +9,29 @@ from utilities.data_generator import *
 
 class Solution(object):
     def sortedListToBST(self, head):
-        """
-        :type head: ListNode
-        :rtype: TreeNode
-        """
-        node, length = head, 0
-        while node:
-            node = node.next
-            length += 1
-        return self._sortedListToBST(head, 0, length - 1)
+        if not head:
+           return None
+        if not head.next:
+            return TreeNode(head.val)
 
-    def _sortedListToBST(self, head, start, end):
-        if start > end:
-            return None
-        mid = (start + end) / 2
-        left = self._sortedListToBST(head, start, mid - 1)
-        parent = TreeNode(head.val)
-        parent.left = left
-        head = head.next
-        parent.right = self._sortedListToBST(head, mid + 1, end)
-        return parent
+        fast = head.next
+        slow = head
+        last_of_left = None
+        while fast and fast.next:
+            fast = fast.next.next
+            last_of_left = slow
+            slow = slow.next
+
+        root = TreeNode(slow.val)
+
+        if last_of_left:
+            last_of_left.next = None
+            root.left = self.sortedListToBST(head)
+
+        if slow.next:
+            root.right = self.sortedListToBST(slow.next)
+        return root
+
 
     def sortedListToBST_2(self, head):
         """
@@ -51,28 +54,6 @@ class Solution(object):
         r = self.build_tree(n - n / 2 - 1)
         root.left = l
         root.right = r
-        return root
-
-    def sortedListToBST_3(self, head):
-        if head is None:
-            return None
-
-        fast = head
-        slow = head
-        last_of_left = None
-        while fast.next and fast.next.next:
-            fast = fast.next.next
-            last_of_left = slow
-            slow = slow.next
-
-        root = TreeNode(slow.val)
-
-        if last_of_left:
-            last_of_left.next = None
-            root.left = self.sortedListToBST_2(head)
-
-        if slow.next:
-            root.right = self.sortedListToBST_2(slow.next)
         return root
 
 

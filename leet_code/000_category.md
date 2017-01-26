@@ -19,7 +19,7 @@ LeetCode C# Implementation
 
 
 **Binary Search**:
-- 004. Median of Two Sorted Arrays              # Binary search, find Kth number!!
+- 004. Median of Two Sorted Arrays         **** # Binary search, find Kth number!!
 - 033. Search in Rotated Sorted Array
 - 081. Search in Rotated Sorted Array II    :   Duplicates are allowed
 - 034. Search for a Range                   : BS, while
@@ -126,10 +126,6 @@ LeetCode C# Implementation
 - 255. Verify Preorder Sequence in Binary Search Tree
 
 
-
-
-
-
 **Recursion and back tracing**:
 - 017. Letter Combination                       : Backtracking
 - 037. Sudoku Solver
@@ -145,7 +141,7 @@ LeetCode C# Implementation
 - 096. Unique Binary Search Trees
 - 097. Interleaving String
 - 120. Triangle
-- 139. Word Break
+- 139. Word Break    ***
 - 152. Maximum Product Subarray
 - 204. Count Primes
 - 221. Maximal Square
