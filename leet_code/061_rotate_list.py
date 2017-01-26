@@ -12,37 +12,7 @@ from data_structure.list_node import ListNode
 
 
 class Solution(object):
-    # can not pass [1, 2] 3
-    # can not pass [1,2] 2
-    def rotateRight_my(self, head, k):
-        """
-        :type head: ListNode
-        :type k: int
-        :rtype: ListNode
-        """
-        if head is None or k < 1:
-            return head
-
-        pfast = head
-        pslow = head
-
-        for i in xrange(k):
-            if pfast.next:
-                pfast = pfast.next
-            else:
-                # Wrong! Can not pass [1, 2] 3
-                return head
-
-        while pfast.next:
-            pfast = pfast.next
-            pslow = pslow.next
-
-        new_head = pslow.next
-        pslow.next = None
-        pfast.next = head
-        return new_head
-
-    def rotateRight_cycle(self, head, k):
+    def rotateRight(self, head, k):
         if k == 0 or head is None:
             return head
         tail = head

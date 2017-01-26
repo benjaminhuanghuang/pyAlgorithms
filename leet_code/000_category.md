@@ -1,6 +1,5 @@
-LeetCode C# Implementation
+LeetCode Python Implementation
 =====================================
-
 **String and array**:
 - 003. Longest Substring Without Repeating Characters # double point + dict
 - 005. Longest Palindromic Substring
@@ -16,7 +15,6 @@ LeetCode C# Implementation
 **Python int overflow**:
 - 007. Reverse Integer
 - 008. String to Integer (atoi)
-
 
 **Binary Search**:
 - 004. Median of Two Sorted Arrays         **** # Binary search, find Kth number!!
@@ -34,44 +32,6 @@ LeetCode C# Implementation
 - 378. Kth Smallest Element in a Sorted Matrix 
 - 475. Heaters                      ****
 
-**Combinations**
-- 017. Letter Combinations of a Phone Number    # dfs
-- 022. Generate Parentheses        # dfs, left < right
-
-**Bitwise**
-- 136. Single Number
-- 137. Single Number II
-- 190. Reverse Bits
-- 201. Bitwise AND of Numbers Range             : AND
-- 338. Counting Bits                  HARD****
-- 393. UTF-8 Validation
-- 421. Maximum XOR of Two Numbers in an Array  [Goolge]
-
-
-
-**Sorting**
-- 147. Insertion Sort List                      :
-- 148. Sort List                                : Merge Sort O(n log n) and Merge List
-- 173. Binary Search Tree Iterator
-
-**Permutation**
-- 017. Letter Combinations of a Phone Number
-- 031. Next Permutation
-- 046. Permutations
-- 047. Permutations II
-- 051. N-Queens
-- 051. N-Queens II
-- 060. Permutation Sequence
-- 077. Combinations
-- 090. Subsets II                              :
-- 093. Restore IP Addresses
-- 401. Binary Watch
-
-
-
-
-**Divide and Conquer**:
-- 095. Unique Binary Search Trees II
 
 **LinkedList**:
 - 019. Remove Nth Node From End of List         : dummy head and fast-slow point
@@ -91,7 +51,7 @@ LeetCode C# Implementation
 - 148. Sort List                                : Dived, Sort, Merge
 - 160. Intersection of Two Linked Lists         : length
 - 203. Remove Linked List Elements              : #237        
-- 206. Reverse Linked List                      : Iteratively or recursively
+- 206. Reverse Linked List                      : * Important! Iteratively or recursively
 - 234. Palindrome Linked List
 - 237. Delete Node in a Linked List             : #203
 - 328. Odd Even Linked List
@@ -124,6 +84,43 @@ LeetCode C# Implementation
 - 230. Kth Smallest Element in a BST
 - 235. Lowest Common Ancestor of a Binary Search Tree    : ***
 - 255. Verify Preorder Sequence in Binary Search Tree
+
+
+**Combinations**
+- 017. Letter Combinations of a Phone Number    # dfs
+- 022. Generate Parentheses        # dfs, left < right
+
+**Bitwise**
+- 136. Single Number
+- 137. Single Number II
+- 190. Reverse Bits
+- 201. Bitwise AND of Numbers Range             : AND
+- 338. Counting Bits                  HARD****
+- 393. UTF-8 Validation
+- 421. Maximum XOR of Two Numbers in an Array  [Goolge]
+
+**Sorting**
+- 147. Insertion Sort List                      :
+- 148. Sort List                                : Merge Sort O(n log n) and Merge List
+- 173. Binary Search Tree Iterator
+
+**Permutation**
+- 017. Letter Combinations of a Phone Number
+- 031. Next Permutation
+- 046. Permutations
+- 047. Permutations II
+- 051. N-Queens
+- 051. N-Queens II
+- 060. Permutation Sequence
+- 077. Combinations
+- 090. Subsets II                              :
+- 093. Restore IP Addresses
+- 401. Binary Watch
+
+
+**Divide and Conquer**:
+- 095. Unique Binary Search Trees II
+
 
 
 **Recursion and back tracing**:
