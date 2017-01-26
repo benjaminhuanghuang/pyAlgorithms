@@ -1,5 +1,5 @@
 '''
-33. Search in Rotated Sorted Array
+33. Search in Rotated Sorted Array   [#81]
 
 Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 
@@ -17,31 +17,37 @@ Reference:
 
 
 class Solution(object):
-    # http://www.cnblogs.com/Dabay/p/4269053.html
-    def search(self, nums, target):
-        if len(nums) == 1:
-            return [-1, 0][nums[0] == target]
+    def search_my(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if not nums:
+            return -1
+        left = 0
+        right = len(nums) - 1
+        while (left + 1 < right):
+            mid = left + (right - left) / 2
+            if nums[mid] == target:
+                return mid
+            if nums[mid] > nums[left]:  # the element in left half goes in increasing order
+                if nums[left] <= target and target <= nums[mid]:  # target between left and mid, use <= here
+                    right = mid
+                else:
+                    left = mid
+            else:  # the reset is in left half, the element in right half goes in increasing order
+                if nums[mid] <= target and target <= nums[right]:
+                    # target in right half
+                    left = mid
+                else:
+                    right = mid
 
-        if nums[0] == target:
-            return 0
-        elif nums[0] < target:
-            i = 1
-            while i < len(nums) and nums[i - 1] < nums[i] and nums[i - 1] < target:
-                if nums[i] == target:
-                    return i
-                i = i + 1
-            else:
-                return -1
-        else:
-            if nums[-1] == target:
-                return len(nums) - 1
-            i = len(nums) - 2
-            while i >= 0 and nums[i] < nums[i + 1] and target < nums[i + 1]:
-                if nums[i] == target:
-                    return i
-                i = i - 1
-            else:
-                return -1
+        if nums[left] == target:
+            return left
+        if nums[right] == target:
+            return right
+        return -1
 
     # The elements in the list goes in increasing order, then drop down, and increase again.
     # The minimum element is the reset point
@@ -63,7 +69,6 @@ class Solution(object):
             mid = nums[m]
             if mid == target:
                 return m
-
 
             if mid > nums[left]:
                 # the element in left half goes in increasing order

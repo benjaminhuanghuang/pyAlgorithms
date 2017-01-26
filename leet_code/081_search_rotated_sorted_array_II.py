@@ -24,7 +24,7 @@ class Solution(object):
             mid = (left + right) / 2
             if nums[mid] == target:
                 return True
-            if nums[mid] == nums[left]:
+            if nums[mid] == nums[left]:   # only difference with #33
                 left += 1
             elif nums[mid] > nums[left]:
                 if nums[mid] > target and nums[left] <= target:
@@ -37,7 +37,6 @@ class Solution(object):
                 else:
                     right = mid - 1
         return False
-
 
 s = Solution()
 print s.search([1, 3, 1, 1, 1], 3)
