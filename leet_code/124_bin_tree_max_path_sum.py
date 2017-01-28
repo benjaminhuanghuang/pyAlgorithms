@@ -26,6 +26,8 @@ class Solution(object):
         self.maxPathSum_helper(root)
         return self.maxSum
 
+    # 1. return max of left branch or right branch
+    # 2. cal maxSum
     def maxPathSum_helper(self, root):
         if root is None:
             return 0

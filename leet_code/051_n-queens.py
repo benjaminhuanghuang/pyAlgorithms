@@ -39,44 +39,37 @@ class Solution(object):
         if n <= 0:
             return result
 
-        cols = []  # col nums of the queen's position in each row
-        self.search(n, cols, result)
+        poses = []  # queen's position in each row
+        self.search(n, poses, result)
         return result
 
-    def search(self, n, cols, result):
-        if len(cols) == n:
-            result.append(self.drawBoard(cols))
-            return
+    def search(self, n, poses, result):
+        if len(poses) == n:
+            result.append(self.drawBoard(poses))
 
-        for col in range(n):
-            if not self.isValid(cols, col):
+        for pos in range(n):
+            if not self.isValid(poses, pos):
                 continue
-            self.search(n, cols + [col], result)
+            self.search(n, poses + [pos], result)  # should pass in a new list
 
-    def isValid(self, cols, col):
-        row_count = len(cols)
-        for i in range(row_count):
-            # same column
-            if cols[i] == col:
+    def isValid(self, poses, pos):
+        next_row = len(poses)
+        next_col = pos
+        for row in range(len(poses)):
+            if pos == poses[row]:  # tow Q in same col. poses[row] is the col of Q in row
                 return False
-            # left-top to right-bottom
-            if i - cols[i] == row_count - col:
+            if next_row - row == next_col - poses[row]:  # left_top to right_bottom
                 return False
-            # right-top to left-bottom
-            if i + cols[i] == row_count + col:
+            if poses[row] - next_col == next_row - row:  # right_top to left_bottom
                 return False
         return True
 
-    def drawBoard(self, cols):
-        '''
-        :param cols[i]: col num of queen's position in each row
-        :return:
-        '''
+    def drawBoard(self, poses):
         board = []
-        for i in range(len(cols)):
+        for row in range(len(poses)):
             line = ""
-            for j in range(len(cols)):
-                if j == cols[i]:
+            for col in range(len(poses)):
+                if col == poses[row]:
                     line += "Q"
                 else:
                     line += "."

@@ -63,7 +63,7 @@ class Solution(object):
         for i in range(len(mp)):
             for j in range(len(mp[i])):
                 if i == 0 and j == 0:
-                    mp[i][j] = 1 - mp[i][j]
+                    mp[i][j] = 1 - mp[i][j]  # if mp[i][j] == 1, path =0
                 elif i == 0:
                     if mp[i][j] == 1:
                         mp[i][j] = 0
@@ -79,10 +79,7 @@ class Solution(object):
                         mp[i][j] = 0
                     else:
                         mp[i][j] = mp[i - 1][j] + mp[i][j - 1]
-        if mp[-1][-1] > 2147483647:
-            return -1
-        else:
-            return mp[-1][-1]
+        return mp[-1][-1]
 
     def uniquePathsWithObstacles_2(self, obstacleGrid):
         rows = len(obstacleGrid)
