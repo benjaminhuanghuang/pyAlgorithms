@@ -32,17 +32,17 @@ class Solution(object):
         # nums.sort()
 
         result = []
-        line = []
-        self.helper(result, line, nums, 0)
+        combination = []
+        self.helper(result, combination, nums, 0)
         return result
 
-    def helper(self, result, line, nums, pos):
-        result.append(list(line))  # append a copy of line to result
+    def helper(self, result, combination, nums, pos):
+        result.append(list(combination))  # append a copy of line to result
 
         for i in range(pos, len(nums)):
-            line.append(nums[i])
-            self.helper(result, line, nums, i + 1)
-            line.pop()
+            combination.append(nums[i])
+            self.helper(result, combination, nums, i + 1)
+            combination.pop()
 
     def subsets_2(self, nums):
         """

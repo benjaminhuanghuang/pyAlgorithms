@@ -21,7 +21,7 @@ class Solution(object):
         """
         return sorted(nums, reverse=True)[k - 1]
 
-    # http://www.tangjikai.com/algorithms/leetcode-215-kth-largest-element-in-an-array
+    # https://segmentfault.com/a/1190000003704825
     # O(n) time, O(1) Space
     # 1. select nums[0] as pivot
     # 2. tail means the end position of elements are larger than pivot

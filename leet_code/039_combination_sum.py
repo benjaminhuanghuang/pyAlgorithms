@@ -30,12 +30,12 @@ class Solution(object):
         self.dfs(candidates, target, 0, [])
         return self.result
 
-    def dfs(self, candidates, target, start, valuelist):
+    def dfs(self, candidates, target, index, combination):
         length = len(candidates)
         if target == 0:
-            return self.result.append(valuelist)
+            return self.result.append(combination)
 
-        for i in range(start, length):
+        for i in range(index, length):
             if target < candidates[i]:
                 return
-            self.dfs(candidates, target - candidates[i], i, valuelist + [candidates[i]])
+            self.dfs(candidates, target - candidates[i], i, combination + [candidates[i]])
