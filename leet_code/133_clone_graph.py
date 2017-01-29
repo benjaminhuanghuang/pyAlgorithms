@@ -67,15 +67,15 @@ class Solution(object):
         dic[node] = nodeCopy
 
         while queue:
-            cur = queue.pop(0)
+            node_source = queue.pop(0)
 
-            for n in cur.neighbors:
-                if n in dic:
-                    dic[cur].neighbors.append(dic[n])
+            for neighbor_source in node_source.neighbors:
+                if neighbor_source in dic:
+                    dic[node_source].neighbors.append(dic[neighbor_source])
                 else:
-                    neighborCopy = UndirectedGraphNode(n.label)
-                    dic[cur].neighbors.append(neighborCopy)
-                    dic[n] = neighborCopy
-                    queue.append(n)
+                    neighborCopy = UndirectedGraphNode(neighbor_source.label)
+                    dic[node_source].neighbors.append(neighborCopy)
+                    dic[neighbor_source] = neighborCopy
+                    queue.append(neighbor_source)
 
         return nodeCopy

@@ -20,9 +20,7 @@ class Solution(object):
         return self.search(nums, 0, len(nums) - 1)
 
     def search(self, nums, left, right):
-        if left == right:
-            return nums[left]
-        if nums[left] < nums[right]:  # [left....right] are ordered
+        if nums[left] <= nums[right]:  # [left....right] are ordered
             return nums[left]
         mid = (left + right) >> 1
         return min(self.search(nums, left, mid), self.search(nums, mid + 1, right))

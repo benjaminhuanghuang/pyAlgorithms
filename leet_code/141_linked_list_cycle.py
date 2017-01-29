@@ -19,7 +19,7 @@ class Solution_my(object):
         """
         if not head:
             return False
-        fast = head
+        fast = head.next
         slow = head
 
         while fast and fast.next:

@@ -17,7 +17,7 @@ class LRUCache(object):
         :type capacity: int
         """
         self.capacity = capacity
-        self.map = {}
+        self.key_val = {}
         # keep all keys in cache[]
         self.cache = []
 
@@ -25,10 +25,10 @@ class LRUCache(object):
         """
         :rtype: int
         """
-        if key in self.map:
+        if key in self.key_val:
             self.cache.remove(key)
             self.cache.append(key)
-            return self.map[key]
+            return self.key_val[key]
         else:
             return -1
 
@@ -39,14 +39,14 @@ class LRUCache(object):
         :rtype: nothing
         """
 
-        if key in self.map:
-            self.map[key] = value
+        if key in self.key_val:
+            self.key_val[key] = value
             self.cache.remove(key)
             self.cache.append(key)
         else:
-            if len(self.map) == self.capacity:
-                del self.map[self.cache[0]]
+            if len(self.key_val) == self.capacity:
+                del self.key_val[self.cache[0]]
                 del self.cache[0]
 
-            self.map[key] = value
+            self.key_val[key] = value
             self.cache.append(key)

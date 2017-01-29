@@ -50,9 +50,9 @@ class Solution(object):
         mid2 = len(nums2) / 2
 
         if mid1 + mid2 < k:   # make mid bigger
-            if nums1[mid1] > nums2[mid2]:
+            if nums1[mid1] > nums2[mid2]:  # extend nums2
                 return self.kth(nums1, nums2[mid2 + 1:], k - mid2 - 1)
-            else:
+            else: # extend nums1
                 return self.kth(nums1[mid1 + 1:], nums2, k - mid1 - 1)
         else:  # mid1 + mid2 >= k, make mid smaller
             if nums1[mid1] > nums2[mid2]:

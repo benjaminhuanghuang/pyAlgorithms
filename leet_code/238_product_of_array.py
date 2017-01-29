@@ -30,7 +30,9 @@ class Solution(object):
         res = [1] * n
         l = r = 1
 
-        # res[i] = nums[0]*nums[1]...*nums[i-1]）
+        # res[0] = res[0]*1
+        # res[0] = res[1]*res[0]
+        # res[i] = nums[0]*nums[1]...*nums[i-1]
         for i in range(1, n):
             l *= nums[i - 1]
             res[i] *= l
