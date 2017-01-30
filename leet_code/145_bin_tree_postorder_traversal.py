@@ -17,6 +17,26 @@ Note: Recursive solution is trivial, could you do it iteratively?
 
 
 class Solution(object):
+
+
+    def preorderTraversal_Iterative(self, root):
+        res = []
+        stack = []
+        if root:
+            stack.append(root)
+        while stack:
+            top = stack.pop()
+            res.append(top.val)
+
+            # note: push left firstly.
+            if top.left:
+                stack.append(top.left)
+            if top.right:
+                stack.append(top.right)
+
+        res.reverse()
+        return res
+
     # http://www.cnblogs.com/zuoyuan/p/3720846.html
     def postorderTraversal(self, root):
         """

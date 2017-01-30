@@ -6,6 +6,29 @@ nodes of the first two lists.
 '''
 from data_structure.list_node import ListNode
 
+
+# good version:
+# 1. use a dummy to simplify
+# 2. Do not handle v1 == v2.
+def mergeTwoLists(l1, l2):
+    dummy_head = ListNode(0)
+    tail = dummy_head
+    while l1 and l2:
+        if l1.val < l2.val:
+            tail.next = l1
+            l1 = l1.next
+        else:
+            tail.next = l2
+            l2 = l2.next
+        tail = tail.next
+
+    if l1:
+        tail.next = l1
+    else:
+        tail.next = l2
+    return dummy_head.next
+
+
 def merge_sorted_lists(head1, head2):
     if head1 is None or head2 is None:
         return head1 or head2
@@ -43,28 +66,6 @@ def append_node(head, tail, node):
         tail.next = node
 
     return head, node
-
-
-# good version:
-# 1. use a dummy to simplify
-# 2. Do not handle v1 == v2.
-def mergeTwoLists(l1, l2):
-    dummy_head = ListNode(0)
-    tail = dummy_head
-    while l1 and l2:
-        if l1.val < l2.val:
-            tail.next = l1
-            l1 = l1.next
-        else:
-            tail.next = l2
-            l2 = l2.next
-        tail = tail.next
-
-    if l1:
-        tail.next = l1
-    else:
-        tail.next = l2
-    return dummy_head.next
 
 
 # -----------------------------------------------------

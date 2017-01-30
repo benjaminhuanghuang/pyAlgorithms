@@ -12,6 +12,9 @@ Given binary tree [1,null,2,3],
    3
 return [1,3,2].
 
+
+# 144, #145 #173
+
 '''
 
 
