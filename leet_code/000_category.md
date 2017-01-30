@@ -63,12 +63,13 @@ LeetCode Python Implementation
 - 106. Construct Binary Tree from Inorder and Postorder Traversal  
 - 111. Minimum Depth of Binary Tree
 - 112. Path Sum
+- 114. Flatten Binary Tree to Linked List
 - 124. Binary Tree Maximum Path Sum  ***
-- 173. Binary Search Tree Iterator    ****
 - 094. Binary Tree Inorder Traversal            : Iteratively or recursively or Morris
 - 144. Binary Tree Preorder Traversal           : Iteratively or recursively or Morris
 - 145. Binary Tree Postorder Traversal          :
 - 156. Binary Tree Upside Down                  : Iteratively or recursively
+- 173. Binary Search Tree Iterator    ****
 - 199. Binary Tree Right Side View
 - 222. Count Complete Tree Nodes           *** Hard
 - 226. Invert Binary Tree
