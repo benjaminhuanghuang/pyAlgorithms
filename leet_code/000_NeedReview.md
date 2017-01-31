@@ -6,6 +6,7 @@ LeetCode
 - 029. Divide Two Integers
 - 032. Longest Valid Parentheses
 - 038. Count and Say
+- 084. Largest Rectangle in Histogram    : HARD
 - 215. Kth Largest Element in an Array
 - 303. Range Sum Query - Immutable   # cache
 - 338. Counting Bits  ***

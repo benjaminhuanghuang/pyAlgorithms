@@ -16,6 +16,7 @@ Reference:
 '''
 
 
+# http://www.cnblogs.com/zuoyuan/p/3779688.html
 def roman_to_int(s):
     ROMAN = {
         'I': 1,
@@ -39,6 +40,7 @@ def roman_to_int(s):
             sum += ROMAN[s[index]]
         index -= 1
     return sum
+
 
 s = "VIII"
 s = "XCIX"

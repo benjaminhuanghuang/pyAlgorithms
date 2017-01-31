@@ -13,7 +13,7 @@ reference
 
 
 class Solution(object):
-    # http://www.cnblogs.com/zuoyuan/p/3779688.html
+
     def intToRoman(self, num):
         """
         :type num: int
@@ -33,7 +33,7 @@ class Solution(object):
         result = ""
         scale = 1000
 
-        for i in xrange(6, -1, -2):
+        for i in xrange(6, -1, -2):  # M, C, X, I
             digit = num / scale
             if 0 < digit and digit <= 3:
                 result += (ROMAN[i] * digit)
