@@ -83,22 +83,22 @@ class Solution_My(object):
         :type lists: List[ListNode]
         :rtype: ListNode
         """
-        count= len(lists)
-        mid = count/2
+        count = len(lists)
+        mid = count / 2
         list1 = self.merge_lists(0, mid, lists)
-        list2 = self.merge_lists( mid+1, count-1, lists)
+        list2 = self.merge_lists(mid + 1, count - 1, lists)
         return self.merge_two_list(list1, list2)
 
     def merge_lists(self, start, end, lists):
         length = len(lists)
-        if start > end or end>=length:
+        if start > end or end >= length:
             return None
         elif start == end:
             return lists[start]
 
-        mid = start + (end - start)/2
-        list1 = self.merge_lists( start, mid, lists)
-        list2 = self.merge_lists( mid+1, end, lists)
+        mid = start + (end - start) / 2
+        list1 = self.merge_lists(start, mid, lists)
+        list2 = self.merge_lists(mid + 1, end, lists)
 
         return self.merge_two_list(list1, list2)
 
