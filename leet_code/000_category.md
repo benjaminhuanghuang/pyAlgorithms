@@ -18,7 +18,7 @@ LeetCode Python Implementation
 
 **Binary Search**:
 - 004. Median of Two Sorted Arrays         **** # Binary search, find Kth number!!
-- 033. Search in Rotated Sorted Array
+- 033. Search in Rotated Sorted Array      #153
 - 081. Search in Rotated Sorted Array II    :   Duplicates are allowed
 - 034. Search for a Range                   : BS, while
 - 035. Search Insert Position               #****
@@ -100,6 +100,7 @@ LeetCode Python Implementation
 - 190. Reverse Bits
 - 201. Bitwise AND of Numbers Range             : AND
 - 338. Counting Bits                  HARD****
+- 371. Sum of Two Integers   : a^b, a&b
 - 393. UTF-8 Validation
 - 421. Maximum XOR of Two Numbers in an Array  [Goolge]
 
