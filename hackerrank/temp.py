@@ -1,15 +1,12 @@
-import math
-
-
-def is_prime(num):
-    if num <= 1:
-        return False
-
-    sqr = int(math.sqrt(num)) + 1  # +1 for num =2
-    for i in range(2, sqr):
-        if num % i == 0:
-            return True
-    return False
-
-
-print is_prime(12)
+from random import randint
+def pop_testCase(n):
+    for i in range(n):
+        no_of_students = randint(1,200)
+        threshold = randint(1,no_of_students)
+        print str(no_of_students) + " " + str(threshold)
+        arrivals = []
+        for arrival in range(no_of_students):
+            arrivals.append(randint(-1000,1000))
+        print " ".join(map(str,arrivals))
+print 5
+pop_testCase(5)
