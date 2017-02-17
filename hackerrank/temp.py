@@ -1,9 +1,23 @@
-import re
+import sys
+def array_bitwise(t, k):
+    ans = 0
+    for i in range(1, t):
+        for j in range(i+1, t+1):
+            bw = i & j
+            if bw < k:
+                ans = max(ans, bw)
+    return ans
 
-test_string = ('A regular expression is a pattern which specifies a set of strings of characters; '
-               'it is said to match certain strings. regular')
 
-f = re.findall(r'regular', test_string)  # ['regular']
 
-print f
-# print re.findall(r'strings\.', test_string)  # ['strings.']
+
+#
+# t = int(raw_input().strip())
+# for a0 in xrange(t):
+#     n,k = raw_input().strip().split(' ')
+#     n,k = [int(n),int(k)]
+#     print array_bitwise(t, k)
+
+
+# print array_bitwise(5, 2)
+print array_bitwise(2, 2)

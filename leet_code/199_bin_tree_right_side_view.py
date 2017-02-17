@@ -22,16 +22,16 @@ class Solution(object):
         """
         if root is None:
             return []
-        stack = [root]
+        level = [root]
         result = []
-        while len(stack) > 0:
-            result.append(stack[-1].val)
+        while len(level) > 0:
+            result.append(level[-1].val)
             new_level = []
-            for item in stack:
+            for item in level:
                 if item.left:
                     new_level.append(item.left)
                 if item.right:
                     new_level.append(item.right)
-            stack = new_level
+            level = new_level
 
         return result
