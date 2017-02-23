@@ -39,6 +39,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
+        if not root:
+            return []
         res = []
         freq_dict = {}
         self.helper(root, freq_dict)
