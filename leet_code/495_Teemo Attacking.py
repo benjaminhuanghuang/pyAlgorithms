@@ -15,6 +15,7 @@ Explanation: At time point 1, Teemo starts attacking Ashe and makes Ashe be pois
 This poisoned status will last 2 seconds until the end of time point 2.
 And at time point 4, Teemo attacks Ashe again, and causes Ashe to be in poisoned status for another 2 seconds.
 So you finally need to output 4.
+
 Example 2:
 Input: [1,2], 2
 Output: 3
@@ -38,3 +39,23 @@ class Solution(object):
         :type duration: int
         :rtype: int
         """
+        if len(timeSeries) <= 0:
+            return 0
+        ans = 0
+        last_start = timeSeries[0]
+        last_end = timeSeries[0] + duration - 1
+        for i in range(1, len(timeSeries)):
+            if timeSeries[i] > last_end:
+                ans += last_end - last_start + 1
+                last_start = timeSeries[i]
+                last_end = timeSeries[i] + duration - 1
+            else:
+                last_end = timeSeries[i] + last_start
+
+        ans += last_end - last_start + 1
+        return ans
+
+
+s = Solution()
+# print s.findPoisonedDuration([1, 4], 2)
+print s.findPoisonedDuration([1, 2], 2)
