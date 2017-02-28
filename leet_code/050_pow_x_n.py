@@ -39,6 +39,6 @@ class Solution(object):
             return 1
         res = self.pow_helper(x, n / 2)
         res *= res
-        if n % 2:
+        if n % 2 == 1:
             res *= x
         return res

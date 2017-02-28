@@ -31,21 +31,13 @@ class Solution(object):
         self.rec(res, 0, n, k, [])
         return res
 
-    def rec(self, res, i, n, k, temp):
-        '''
-        :param res:
-        :param i: current number
-        :param n: last number
-        :param k: combination count
-        :param temp:
-        :return:
-        '''
+    def rec(self, res, i, n, k, combination):
         if k == 0:
-            res.append(temp)
+            res.append(combination)
             return
         for j in range(i + 1, n + 1):
             # temp.append(j)
-            self.rec(res, j, n, k - 1, temp + [j])
+            self.rec(res, j, n, k - 1, combination + [j])
 
     def combine_9(self, n, k):
         # write your code here
@@ -65,7 +57,7 @@ class Solution(object):
 
     # https://shenjie1993.gitbooks.io/leetcode-python/content/077%20Combinations.html
     # to n, have two choice: pick up (k-1) from 1 to (n-1) or pickup k from 1 to n-1
-    def combine_2(self, n, k):
+    def combine_fastest(self, n, k):
         """
         :type n: int
         :type k: int

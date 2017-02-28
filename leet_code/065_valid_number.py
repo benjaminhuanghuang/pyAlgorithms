@@ -13,9 +13,9 @@ Some examples:
 
 import re
 
-def is_validate_num(input_str):
-    input_str = input_str.strip()
-    input_str = input_str.strip()
+
+def is_validate_num(s):
+    input_str = s.strip()
     if "e" in input_str:
         regex_num = r"^[\+-]?((\.\d+)|(\d+\.?\d*))[Ee](\+|-)?(\d+)$"
     else:

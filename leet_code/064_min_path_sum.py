@@ -9,7 +9,7 @@ Note: You can only move either down or right at any point in time.
 
 
 class Solution(object):
-    # dp[i][j] = min(dp[i-1][j], dp[i][j-1])
+    # dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
     def minPathSum_1(self, grid):
         for i in xrange(1, len(grid)):
             grid[i][0] += grid[i-1][0]

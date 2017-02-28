@@ -27,7 +27,7 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-        if matrix is None:
+        if not matrix or not matrix[0]:
             return False
 
         row = len(matrix)
