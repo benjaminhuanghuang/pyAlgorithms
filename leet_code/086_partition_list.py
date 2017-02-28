@@ -11,6 +11,7 @@ return 1->2->2->4->3->5.
 '''
 from data_structure.list_node import ListNode
 
+
 class Solution(object):
     def partition(self, head, x):
         """
@@ -18,24 +19,23 @@ class Solution(object):
         :type x: int
         :rtype: ListNode
         """
-        head1 = ListNode(0)
-        head2 = ListNode(0)
-        p1 = head1
-        p2 = head2
+        head_smaller = ListNode(0)
+        head_bigger = ListNode(0)
+        p_smaller = head_smaller
+        p_bigger = head_bigger
 
         current = head
         while current:
             if current.val < x:
-                p1.next = current
+                p_smaller.next = current
                 current = current.next
-                p1 = p1.next
-                p1.next = None
+                p_smaller = p_smaller.next
+                p_smaller.next = None
             else:
-                p2.next = current
+                p_bigger.next = current
                 current = current.next
-                p2 = p2.next
-                p2.next = None
+                p_bigger = p_bigger.next
+                p_bigger.next = None
 
-        p1.next = head2.next
-        head = head1.next
-        return head
+        p_smaller.next = head_bigger.next
+        return head_smaller.next
