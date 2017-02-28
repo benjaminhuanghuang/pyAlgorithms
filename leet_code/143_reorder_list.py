@@ -32,7 +32,7 @@ class Solution(object):
 
         # pfast points to the last node
         # pslow points to the middle of the list
-        while pfast.next and pfast.next.next:
+        while pfast and pfast.next:
             pfast = pfast.next.next
             pslow = pslow.next
 
