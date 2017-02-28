@@ -11,6 +11,7 @@ Another example is ")()())", where the longest valid parentheses substring is "(
 
 
 class Solution(object):
+    # https://www.hrwhisper.me/leetcode-longest-valid-parentheses/
     def longestValidParentheses(self, s):
         """
         :type s: str
@@ -22,7 +23,7 @@ class Solution(object):
             if c == '(':
                 stack.append(i)
             elif c == ')' and len(stack) != 0:
-                match[i] = match[stack[-1]] = 1
+                match[i] = match[stack[-1]] = 1   # current ) and last (
                 stack.pop()
 
         ans, temp = 0, 0
@@ -36,6 +37,6 @@ class Solution(object):
 
 
 input = ")(((((()())()()))()(()))("
-input = ")(((((((()()))))))))))))))))))))))))))))))))))))))))))))))()))()(()))("
+# input = ")(((((((()()))))))))))))))))))))))))))))))))))))))))))))))()))()(()))("
 s = Solution()
 print s.longestValidParentheses(input)
