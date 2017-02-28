@@ -19,15 +19,15 @@ class LRUCache(object):
         self.capacity = capacity
         self.key_val = {}
         # keep all keys in cache[]
-        self.cache = []
+        self.keys = []
 
     def get(self, key):
         """
         :rtype: int
         """
         if key in self.key_val:
-            self.cache.remove(key)
-            self.cache.append(key)
+            self.keys.remove(key)
+            self.keys.append(key)
             return self.key_val[key]
         else:
             return -1
@@ -41,12 +41,12 @@ class LRUCache(object):
 
         if key in self.key_val:
             self.key_val[key] = value
-            self.cache.remove(key)
-            self.cache.append(key)
+            self.keys.remove(key)
+            self.keys.append(key)
         else:
             if len(self.key_val) == self.capacity:
-                del self.key_val[self.cache[0]]
-                del self.cache[0]
+                del self.key_val[self.keys[0]]
+                del self.keys[0]
 
             self.key_val[key] = value
-            self.cache.append(key)
+            self.keys.append(key)
