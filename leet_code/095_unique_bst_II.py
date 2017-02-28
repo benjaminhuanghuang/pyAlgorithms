@@ -37,10 +37,10 @@ class Solution(object):
             return [None]
         res = []
         for rootval in range(start, end + 1):
-            LeftTree = self.dfs(start, rootval - 1)
-            RightTree = self.dfs(rootval + 1, end)
-            for ltree in LeftTree:
-                for rtree in RightTree:
+            LeftTrees = self.dfs(start, rootval - 1)
+            RightTrees = self.dfs(rootval + 1, end)
+            for ltree in LeftTrees:
+                for rtree in RightTrees:
                     root = TreeNode(rootval)
                     root.left = ltree
                     root.right = rtree
