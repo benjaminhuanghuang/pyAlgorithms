@@ -13,7 +13,10 @@ Hint:
     Cut the linked list to two parts, reverse second part, then link those 2 parts
 
 '''
-
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution(object):
     def reorderList(self, head):
@@ -22,9 +25,9 @@ class Solution(object):
         :rtype: void Do not return anything, modify head in-place instead.
         """
         if None == head or None == head.next:
-            return head
+            return
 
-        pfast = head
+        pfast = head.next
         pslow = head
 
         # pfast points to the last node
@@ -55,3 +58,5 @@ class Solution(object):
             first_head = first_head.next.next
             sec_head = next
 
+s = Solution()
+s.reorderList(ListNode(10))
