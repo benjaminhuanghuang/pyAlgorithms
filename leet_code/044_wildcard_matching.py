@@ -24,6 +24,7 @@ isMatch("aab", "c*a*b") -> false
 
 
 class Solution(object):
+    # http://www.jiuzhang.com/solutions/wildcard-matching/
     def isMatch(self, s, p):
         """
         :type s: str
@@ -38,11 +39,16 @@ class Solution(object):
         if n == 0 and p.count('*') == m:
             return True
 
-        for i in range(1, n + 1):
-            for j in range(1, m + 1):
-                f[i][j] = ((f[i - 1][j - 1] and
-                            (s[i - 1] == p[j - 1] or p[j - 1] == '?' or p[j - 1] == '*')) or
-                           (f[i - 1][j] or f[i][j - 1]) and p[j - 1] == '*')
+        for i in range(0, n + 1):
+            for j in range(0, m + 1):
+                if i > 0 and j > 0:
+                    f[i][j] |= f[i - 1][j - 1] and (s[i - 1] == p[j - 1] or p[j - 1] in ['?', '*'])
+
+                if i > 0 and j > 0:
+                    f[i][j] |= f[i - 1][j] and p[j - 1] == '*'
+
+                if j > 0:
+                    f[i][j] |= f[i][j - 1] and p[j - 1] == '*'
 
         return f[n][m]
 
