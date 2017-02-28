@@ -41,6 +41,9 @@ class Solution(object):
 
     # bin search O(m*logN)
     def searchMatrix(self, matrix, target):
+        if not matrix or not matrix[0]:
+            return False
+
         m = len(matrix)
         n = len(matrix[0])
 
