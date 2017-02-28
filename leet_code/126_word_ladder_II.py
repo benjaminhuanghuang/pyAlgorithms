@@ -25,11 +25,11 @@ All words contain only lowercase alphabetic characters.
 
 
 class Solution(object):
-    def findLadders(self, beginWord, endWord, wordlist):
+    def findLadders(self, beginWord, endWord, wordList):
         """
         :type beginWord: str
         :type endWord: str
-        :type wordlist: Set[str]
+        :type wordList: Set[str]
         :rtype: List[List[int]]
         """
 
@@ -44,7 +44,7 @@ class Solution(object):
 
         length = len(beginWord)
         preMap = {}
-        for word in wordlist:
+        for word in wordList:
             preMap[word] = []
         result = []
         cur_level = set()
@@ -54,7 +54,7 @@ class Solution(object):
             pre_level = cur_level
             cur_level = set()
             for word in pre_level:
-                wordlist.remove(word)
+                wordList.remove(word)
 
             for word in pre_level:
                 for i in range(length):
@@ -63,7 +63,7 @@ class Solution(object):
                     for c in 'abcdefghijklmnopqrstuvwxyz':
                         if c != word[i]:
                             nextWord = left + c + right
-                            if nextWord in wordlist:
+                            if nextWord in wordList:
                                 preMap[nextWord].append(word)
                                 cur_level.add(nextWord)
             if len(cur_level) == 0:
@@ -105,4 +105,4 @@ wordList = ["hot", "dot", "dog", "lot", "log"]
 
 s = Solution()
 
-s.findLadders_2(beginWord, endWord, wordList)
+s.findLadders(beginWord, endWord, wordList)
