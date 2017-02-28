@@ -36,7 +36,7 @@ class Solution(object):
         Resets the array to its original configuration and return it.
         :rtype: List[int]
         """
-        self.nums[:] = self.backup
+        self.nums = self.backup[:]
         return self.nums
 
     def shuffle(self):

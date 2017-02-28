@@ -42,6 +42,8 @@ class Solution(object):
         for i in range(start, length):
             if target < candidates[i]:
                 return
+            if candidates[i] == candidates[i-1] and i > start:
+                continue
             self.DFS(result, candidates, target - candidates[i], i + 1, valuelist + [candidates[i]])
 
 
