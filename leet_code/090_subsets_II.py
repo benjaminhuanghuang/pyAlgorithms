@@ -33,16 +33,16 @@ class Solution(object):
         # return list(reversed(p))
         return p
 
-    def subsetsWithDup(self, S):
+    def subsetsWithDup(self, nums):
         def dfs(depth, start, valuelist):
             if valuelist not in res:
                 res.append(valuelist)
-            if depth == len(S):
+            if depth == len(nums):
                 return
-            for i in range(start, len(S)):
-                dfs(depth + 1, i + 1, valuelist + [S[i]])
+            for i in range(start, len(nums)):
+                dfs(depth + 1, i + 1, valuelist + [nums[i]])
 
-        S.sort()
+        nums.sort()
         res = []
         dfs(0, 0, [])
         return res
