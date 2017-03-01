@@ -22,7 +22,7 @@ Note:
 All words have the same length.
 All words contain only lowercase alphabetic characters.
 '''
-
+import collections
 
 class Solution(object):
     def findLadders(self, beginWord, endWord, wordList):
@@ -33,70 +33,70 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
-        def buildPath(path, word):
-            if len(preMap[word]) == 0:
-                result.append([word] + path)
-                return
-            path.insert(0, word)
-            for w in preMap[word]:
-                buildPath(path, w)
-            path.pop(0)
+        ans,q = {},[]
+        q.append(beginWord)
+        ans[beginWord] = [[beginWord]]
+        ans[endWord] = []
+        while len(q) != 0:
+            tmp = q.pop(0)
+            for i in range(len(beginWord)):
+                part1,part2 = tmp[:i],tmp[i + 1:]
+                for j in "abcdefghijklmnopqrstuvwxyz":
+                    if tmp[i] != j:
+                        newword = part1 + j + part2
+                        if newword == endWord:
+                            for k in ans[tmp]:
+                                ans[endWord].append(k + [endWord])
+                            while len(q) != 0:
+                                tmp1 = q.pop(0)
+                                if len(ans[tmp1][0]) >= len(ans[endWord][0]):
+                                    break
+                                for ni in range(len(beginWord)):
+                                    npart1,npart2 = tmp1[:ni],tmp1[ni+1:]
+                                    for nj in "abcdefghijklmnopqrstuvwxyz":
+                                        if tmp1[ni] != nj:
+                                            nw = npart1 + nj + npart2
+                                            if endWord == nw:
+                                                for nk in ans[tmp1]:
+                                                    ans[endWord].append(nk + [endWord])
+                            break
+                        if newword in wordList:
+                            q.append(newword)
+                            ans[newword] = []
+                            for k in ans[tmp]:
+                                ans[newword].append(k + [newword])
+                            wordList.remove(newword)
+                        elif newword in ans and len(ans[newword][0]) == len(ans[tmp][0]) + 1:
+                            for k in ans[tmp]:
+                                ans[newword].append(k + [newword])
+        return ans[endWord]
 
-        length = len(beginWord)
-        preMap = {}
-        for word in wordList:
-            preMap[word] = []
-        result = []
-        cur_level = set()
-        cur_level.add(beginWord)
 
-        while True:
-            pre_level = cur_level
-            cur_level = set()
-            for word in pre_level:
-                wordList.remove(word)
+def backtrack(self, result, trace, path, word):
+    if len(trace[word]) == 0:
+        result.append([word] + path)
+    else:
+        for prev in trace[word]:
+            self.backtrack(result, trace, [word] + path, prev)
 
-            for word in pre_level:
-                for i in range(length):
-                    left = word[:i]
-                    right = word[i + 1:]
-                    for c in 'abcdefghijklmnopqrstuvwxyz':
-                        if c != word[i]:
-                            nextWord = left + c + right
-                            if nextWord in wordList:
-                                preMap[nextWord].append(word)
-                                cur_level.add(nextWord)
-            if len(cur_level) == 0:
-                return []
-            if endWord in cur_level:
-                break
-        buildPath([], endWord)
-        return result
 
-    def backtrack(self, result, trace, path, word):
-        if len(trace[word]) == 0:
-            result.append([word] + path)
-        else:
-            for prev in trace[word]:
-                self.backtrack(result, trace, [word] + path, prev)
-
-    def findLadders_2(self, start, end, dict):
-        result, trace, current = [], {word: [] for word in dict}, set([start])
-        while current and end not in current:
-            for word in current:
-                dict.remove(word)
-            next = set([])
-            for word in current:
-                for i in range(len(word)):
-                    for j in 'abcdefghijklmnopqrstuvwxyz':
-                        candidate = word[:i] + j + word[i + 1:]
-                        if candidate in dict:
-                            trace[candidate].append(word)
-                            next.add(candidate)
-            current = next
-        if current:
-            self.backtrack(result, trace, [], end)
-        return result
+def findLadders_2(self, start, end, dict):
+    result, trace, current = [], {word: [] for word in dict}, set([start])
+    while current and end not in current:
+        for word in current:
+            dict.remove(word)
+        next = set([])
+        for word in current:
+            for i in range(len(word)):
+                for j in 'abcdefghijklmnopqrstuvwxyz':
+                    candidate = word[:i] + j + word[i + 1:]
+                    if candidate in dict:
+                        trace[candidate].append(word)
+                        next.add(candidate)
+        current = next
+    if current:
+        self.backtrack(result, trace, [], end)
+    return result
 
 
 beginWord = "hit"
@@ -105,4 +105,4 @@ wordList = ["hot", "dot", "dog", "lot", "log"]
 
 s = Solution()
 
-s.findLadders(beginWord, endWord, wordList)
+print s.findLadders(beginWord, endWord, wordList)
