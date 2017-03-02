@@ -38,7 +38,30 @@ class Solution(object):
                 maxLen = max(maxLen, lenleft + 1 + lenright)
         return maxLen
 
-
+    def longestConsecutive_better(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        nums.sort()
+        last_num = nums[0]
+        ans = 1
+        tmp = 1
+        for n in nums:
+            if(n - last_num == 0):
+                continue
+            elif(n - last_num == 1):  # consecutive
+                tmp += 1
+            else:
+                if tmp > ans:
+                    ans = tmp
+                tmp = 1
+            last_num = n
+        if tmp > ans:
+            ans = tmp
+        return ans
 input = [100, 4, 200, 1, 3, 2]
 s = Solution()
 print s.longestConsecutive(input)
