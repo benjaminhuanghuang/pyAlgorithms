@@ -1,3 +1,4 @@
+# coding : utf-8
 '''
 130. Surrounded Regions
 
@@ -58,7 +59,7 @@ class Solution(object):
             return
 
         if board[i][j] == 'O':
-            board[i][j] = '#'
+            board[i][j] = '#'  # the cell adjacent to
             if i > 1:
                 self.check(board, i - 1, j, row_count, col_count)
             if i < row_count - 1:

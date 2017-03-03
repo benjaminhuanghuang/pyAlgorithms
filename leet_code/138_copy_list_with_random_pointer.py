@@ -1,3 +1,4 @@
+# coding: utf-8
 '''
 138. Copy List with Random Pointer
 
@@ -18,6 +19,7 @@ class RandomListNode(object):
 
 class Solution(object):
     # http://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73016
+    # old list中的随机指针指向的是原链表中的节点，深拷贝则要求将随机指针指向new list中的节点。
     def copyRandomList(self, head):
         """
         :type head: RandomListNode
@@ -27,25 +29,25 @@ class Solution(object):
         if head == None:
             return None
 
-        myMap = {}
+        old_new_map = {}
         new_head = RandomListNode(head.label)
-        myMap[head] = new_head
-        node_old = head
-        node_new = new_head
+        old_new_map[head] = new_head
+        p_old = head
+        p_new = new_head
 
-        while node_old != None:
-            node_new.random = node_old.random
-            if node_old.next != None:
-                node_new.next = RandomListNode(node_old.next.label)
-                myMap[node_old.next] = node_new.next
+        while p_old != None:
+            p_new.random = p_old.random
+            if p_old.next != None:
+                p_new.next = RandomListNode(p_old.next.label)
+                old_new_map[p_old.next] = p_new.next
             else:
-                node_new.next = None
-            node_old = node_old.next
-            node_new = node_new.next
+                p_new.next = None
+            p_old = p_old.next
+            p_new = p_new.next
 
         p = new_head
         while p != None:
             if p.random != None:
-                p.random = myMap[p.random]
+                p.random = old_new_map[p.random]
             p = p.next
         return new_head
