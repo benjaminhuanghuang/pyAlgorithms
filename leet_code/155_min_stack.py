@@ -11,14 +11,14 @@ getMin() -- Retrieve the minimum element in the stack.
 
 import sys
 
-class MinStack_my(object):
 
+class MinStack_my(object):
     def __init__(self):
         """
         initialize your data structure here.
         """
-        self.values=[]
-        self.mins=[]
+        self.values = []
+        self.mins = []
 
     def push(self, x):
         """
@@ -26,11 +26,10 @@ class MinStack_my(object):
         :rtype: void
         """
         self.values.append(x)
-        if len(self.mins)>0:
+        if len(self.mins) > 0:
             self.mins.append(min(self.mins[-1], x))
         else:
-             self.mins.append(x)
-
+            self.mins.append(x)
 
     def pop(self):
         """
@@ -38,7 +37,6 @@ class MinStack_my(object):
         """
         self.values.pop()
         self.mins.pop()
-
 
     def top(self):
         """
@@ -51,6 +49,7 @@ class MinStack_my(object):
         :rtype: int
         """
         return self.mins[-1]
+
 
 class MinStack(object):
     def __init__(self):
