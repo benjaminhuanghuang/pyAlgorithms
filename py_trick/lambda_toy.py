@@ -37,3 +37,13 @@ sorted_keys = sorted(count_dict, key=lambda x: count_dict[x], reverse=True)
 # Sorting a dictionary by value (DES) then key (ASE)
 sorted_count = [k for k, v in sorted(count_dict.iteritems(), key=lambda (k, v): (-v, k))]
 print sorted_count[0]  # 2 not 6
+
+dict = {
+    "b":"BBBBBB",
+    "a":"AAAAAA",
+    "c":"CCCCCC",
+    "x":"XXXXXX",
+    "y":"YYYYYY",
+}
+dict_sorted = sorted(dict, key=lambda x: dict[x])
+print dict_sorted
