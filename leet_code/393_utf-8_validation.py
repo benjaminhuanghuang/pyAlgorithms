@@ -62,7 +62,7 @@ class Solution(object):
             data = data[length:]
         return True
 
-    def validUtf8_2(self, data):
+    def validUtf8_wrong(self, data):
         """
         :type data: List[int]
         :rtype: bool
@@ -92,8 +92,12 @@ class Solution(object):
 
 
 s = Solution()
-data = [197, 130, 1]
+# data = [197, 130, 1]
+# print s.validUtf8(data)
+#
+# data = [235, 140, 4]
+# print s.validUtf8(data)
+
+data = [240, 162, 138, 147, 145]
 print s.validUtf8(data)
 
-data = [235, 140, 4]
-print s.validUtf8(data)
