@@ -22,9 +22,9 @@ class Solution(object):
         :rtype: int
         """
 
-        j = len(nums) - 1
+        pivot = len(nums) - 1
         for i in range(len(nums) - 1, -1, -1):
             if nums[i] == val:
-                nums[i], nums[j] = nums[j], nums[i]
-                j -= 1
-        return j + 1
+                nums[i], nums[pivot] = nums[pivot], nums[i]
+                pivot -= 1
+        return pivot + 1   # pivot is index, return value should be length
