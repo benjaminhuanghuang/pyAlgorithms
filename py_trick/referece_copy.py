@@ -19,10 +19,20 @@ b[1][1] = 3
 print b
 
 # parameters are passed by reference or value
-a = [1, 2, 3]
 
-def change_element(a):
-    # a[0] = 'a'
-    a = ['a', 'b', 'c']
-change_element(a)
-print a
+l = [1, 2, 3]
+
+def change_element(l):
+    # l[0] = 'a'
+    l = ['a', 'b', 'c']
+change_element(l)
+print l
+
+
+l = [1, 2, 3]
+
+def change_element(l):
+    l = ['a', 'b', 'c']
+
+change_element(l)
+print l

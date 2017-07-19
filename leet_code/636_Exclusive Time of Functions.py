@@ -42,24 +42,21 @@ class Solution(object):
         """
         stack = []
         times = [0 for i in range(n)]
-        end = [0 for i in range(n)]
 
         for log in logs:
             id, action, time = log.split(':')
+            id = int(id)
+            time = int(time)
             if action == "start":
-                stack.append(log)
-            elif action == "end":
-                pre_log = stack.pop()
-                pre_id, pre_action, pre_time = pre_log.split(':')
-                time = int(time) - int(pre_time) + 1
-                index = int(id)
-                if int(time) > end[index] and times[index] > 0:
-                    times[index] = time
-                else:
-                    if index < n - 1:
-                        times[index] = times[index] + (time - times[index + 1])
-                    else:
-                        times[index] = time + times[index]
+                if stack:
+                    topId, topTime = stack[-1]
+                    # exe
+                    times[topId] += time - topTime
+                stack.append([id, time])
+            else: # action == "end"
+                times[stack[-1][0]] += time - stack[-1][1] + 1
+                stack.pop()
+                if stack: stack[-1][1] = time + 1
 
         return times
 
