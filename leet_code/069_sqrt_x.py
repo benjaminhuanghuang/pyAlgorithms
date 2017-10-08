@@ -31,3 +31,6 @@ class Solution(object):
                 return mid
 
         return lastMid
+
+s = Solution()
+print s.mySqrt(5)

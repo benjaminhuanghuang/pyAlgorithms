@@ -1,23 +1,18 @@
-import sys
-def array_bitwise(t, k):
-    ans = 0
-    for i in range(1, t):
-        for j in range(i+1, t+1):
-            bw = i & j
-            if bw < k:
-                ans = max(ans, bw)
-    return ans
+def min_coins(coins, total):
+    cols = total + 1
+    rows = len(coins)
+    dp = [[j if col == 0 else float("inf") for col in range(cols)] for j in range(rows)]
+
+    for r in range(rows):
+        for c in range(1, cols):
+            if c < coins[r]:
+                dp[r][c] = dp[r - 1][c]
+            else:
+                dp[r][c] = min(dp[r - 1][c], 1 + dp[r][c - coins[r]])
+
+    return dp[rows - 1][cols - 1]
 
 
 
 
-#
-# t = int(raw_input().strip())
-# for a0 in xrange(t):
-#     n,k = raw_input().strip().split(' ')
-#     n,k = [int(n),int(k)]
-#     print array_bitwise(t, k)
-
-
-# print array_bitwise(5, 2)
-print array_bitwise(2, 2)
+print min_coins([5,10,25], 30)
